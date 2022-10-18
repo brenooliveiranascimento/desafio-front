@@ -1,5 +1,5 @@
 import {
-  ADD_HERO_IN_LIST, DELETE_FILTER, FETCH_HEROS, REMOVE_HERO_IN_LIST, SELECT_FILTER,
+  ADD_HERO_IN_LIST, CREATE_FILTER, DELETE_FILTER, FETCH_HEROS, REMOVE_HERO_IN_LIST, SELECT_FILTER,
 } from '../../redux_types';
 
 const STATE_INITIAL_VALUE = {
@@ -13,9 +13,9 @@ const STATE_INITIAL_VALUE = {
   currFilter: 'All',
 };
 
-const ACTION_INITIAL_STATE = {
+const ACTION_INITIAL_STATE: any = {
   type: '',
-  payLoad: {},
+  payload: {},
 };
 
 function herosModules(state = STATE_INITIAL_VALUE, action = ACTION_INITIAL_STATE) {
@@ -27,7 +27,9 @@ function herosModules(state = STATE_INITIAL_VALUE, action = ACTION_INITIAL_STATE
     case REMOVE_HERO_IN_LIST:
       return state;
     case SELECT_FILTER:
-      return state;
+      return { ...state, currFilter: action.payload };
+    case CREATE_FILTER:
+      return { ...state, filters: { ...state.filters, [action.payload]: [] } };
     case DELETE_FILTER:
       return state;
     default:
