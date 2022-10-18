@@ -1,0 +1,12 @@
+.filter_container {
+  display: flex;
+  width: 70%;
+  height: auto;
+  padding: 2rem;
+  background-color: #272A2F;
+  color: white;
+  margin-top: -3rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
