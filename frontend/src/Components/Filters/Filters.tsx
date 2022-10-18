@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './filters.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { createFilter, selectCurrFilter } from '../../redux/actions/herosActions';
+import FilterBtn from '../FilterBtn/FilterBtn';
 
 function Filters() {
   const [newFilterName, setNewFilterName] = useState('');
@@ -28,15 +29,7 @@ function Filters() {
     >
       {
         filters && filters.map((filter) => (
-          <button
-            key={filter}
-            onClick={() => selectFilter(filter)}
-            className="filter_button"
-            type="button"
-            style={{ backgroundColor: currFilter === filter ? '#371454' : 'rgba(0,0,0)' }}
-          >
-            <h1>{filter}</h1>
-          </button>
+          <FilterBtn filter={filter} />
         ))
       }
       <section>
