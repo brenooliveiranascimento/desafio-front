@@ -10,3 +10,7 @@
   justify-content: center;
   flex-wrap: wrap;
 }
+
+.filter_container h1 {
+  margin: 1rem;
+}
