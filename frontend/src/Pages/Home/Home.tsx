@@ -8,7 +8,6 @@ function Home() {
     <section className="home_cintainer">
       <Header />
       <Filters />
-      <h1>djwakidw</h1>
     </section>
   );
 }

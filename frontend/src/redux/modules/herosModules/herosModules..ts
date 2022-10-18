@@ -5,9 +5,9 @@ import {
 const STATE_INITIAL_VALUE = {
   heros: [],
   filters: {
-    marvel: [],
-    dc: [],
-    villains: [],
+    marvel: [1, 2, 3, 4, 5],
+    dc: [6, 7, 8, 9],
+    villains: [10, 11, 12],
     All: [],
   },
   currFilter: 'All',
