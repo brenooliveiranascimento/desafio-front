@@ -1,10 +1,13 @@
 import React from 'react';
+import Header from '../../Components/Header/Header';
+import './home.css';
 
 function Home() {
   return (
-    <main>
-      <h1>dwaiopdjwaiodj</h1>
-    </main>
+    <section className="home_cintainer">
+      <Header />
+      <h1>djwakidw</h1>
+    </section>
   );
 }
 

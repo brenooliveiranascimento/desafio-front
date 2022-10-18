@@ -1,0 +1,8 @@
+.home_cintainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-color: #232426;
+}
