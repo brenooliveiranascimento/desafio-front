@@ -1,0 +1,6 @@
+export const FETCH_HEROS = 'FETCH_HEROS';
+export const ADD_HERO_IN_LIST = 'ADD_HERO_IN_LIST';
+export const REMOVE_HERO_IN_LIST = 'REMOVE_HERO_IN_LIST';
+export const SELECT_FILTER = 'SELECT_FILTER';
+export const CREATE_FILTER = 'SELECT_FILTER';
+export const DELETE_FILTER = 'DELETE_FILTER';
