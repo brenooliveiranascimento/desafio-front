@@ -1,0 +1,21 @@
+.filter_container {
+  display: flex;
+  width: 70%;
+  height: auto;
+  padding: 2rem;
+  background-color: #272A2F;
+  color: white;
+  margin-top: -3rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filter_button {
+  background-color: none;
+  border: none;
+  color: white;
+  margin: 1rem;
+  width: 10rem;
+  background-color: #5d3979;
+}
