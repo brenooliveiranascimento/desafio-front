@@ -4,7 +4,9 @@ const STATE_INITIAL_VALUE = {
     marvel: [],
     dc: [],
     villains: [],
+    All: [],
   },
+  currFilter: 'All',
 };
 
 const ACTION_INITIAL_STATE = {

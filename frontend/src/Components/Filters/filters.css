@@ -11,6 +11,10 @@
   flex-wrap: wrap;
 }
 
-.filter_container h1 {
+.filter_button {
+  background-color: none;
+  border: none;
+  color: white;
   margin: 1rem;
+  width: 10rem;
 }
