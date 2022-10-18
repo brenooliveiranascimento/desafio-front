@@ -8,7 +8,7 @@ function CardsArea() {
   const requestCharter = async () => {
     try {
       const chaters = await Promise.all(filters[currFilter].map(async (currId: any) => {
-        const fetchCharter = await (await herosApi.get(`${currId}`)).data;
+        const fetchCharter = (await herosApi.get(`${currId}`)).data;
         return fetchCharter;
       }));
     } catch (error) {
