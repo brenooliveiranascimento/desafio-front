@@ -14,7 +14,7 @@ function Filters() {
       className="filter_container"
     >
       {
-        filters && filters.map((filter) => <FilterBtn filter={filter} />)
+        filters && filters.map((filter) => <FilterBtn key={filter} filter={filter} />)
       }
       <section>
         <button

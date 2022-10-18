@@ -1,4 +1,5 @@
 import React from 'react';
+import CardsArea from '../../Components/CardsArea/CardsArea';
 import Filters from '../../Components/Filters/Filters';
 import Header from '../../Components/Header/Header';
 import './home.css';
@@ -8,6 +9,7 @@ function Home() {
     <section className="home_cintainer">
       <Header />
       <Filters />
+      <CardsArea />
     </section>
   );
 }
