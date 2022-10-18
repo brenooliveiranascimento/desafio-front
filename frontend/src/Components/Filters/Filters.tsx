@@ -6,9 +6,7 @@ import FilterBtn from '../FilterBtn/FilterBtn';
 import NewFilterBtn from '../FilterBtn/NewFilterBtn';
 
 function Filters() {
-  const [newFilterName, setNewFilterName] = useState('');
   const [addNewFilter, setAddNewFilter] = useState(false);
-  const dispatch = useDispatch();
   const filters = Object.keys(useSelector(({ herosModules }:any) => herosModules.filters));
 
   return (
