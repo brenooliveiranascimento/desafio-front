@@ -3,6 +3,7 @@ import './filters.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { createFilter, selectCurrFilter } from '../../redux/actions/herosActions';
 import FilterBtn from '../FilterBtn/FilterBtn';
+import NewFilterBtn from '../FilterBtn/NewFilterBtn';
 
 function Filters() {
   const [newFilterName, setNewFilterName] = useState('');
@@ -10,21 +11,12 @@ function Filters() {
   const dispatch = useDispatch();
   const filters = Object.keys(useSelector(({ herosModules }:any) => herosModules.filters));
 
-  const newFilter = () => {
-    if (!newFilterName) return alert('Por favor Digite alguma coisa');
-    dispatch(createFilter(newFilterName));
-    setNewFilterName('');
-    setAddNewFilter(false);
-  };
-
   return (
     <section
       className="filter_container"
     >
       {
-        filters && filters.map((filter) => (
-          <FilterBtn filter={filter} />
-        ))
+        filters && filters.map((filter) => <FilterBtn filter={filter} />)
       }
       <section>
         <button
@@ -34,17 +26,8 @@ function Filters() {
         >
           <h1>{addNewFilter ? 'Cancelar' : 'Novo Filtro'}</h1>
         </button>
-        {addNewFilter && (
-          <section>
-            <input
-              value={newFilterName}
-              onChange={({ target }) => setNewFilterName(target.value)}
-            />
-            <button onClick={newFilter} type="button">
-              Adicionar
-            </button>
-          </section>
-        )}
+
+        {addNewFilter && <NewFilterBtn setAddNewFilter={() => setAddNewFilter(false)} />}
       </section>
     </section>
   );
