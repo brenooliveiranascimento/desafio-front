@@ -1,5 +1,6 @@
 import React from 'react';
 import { heroTypes } from '../../types/heroTypes';
+import Stats from './Stats';
 
 interface currCharterTypes {
   currCharter: heroTypes
@@ -13,27 +14,9 @@ function Cards({ currCharter }: currCharterTypes) {
       <article>
         <span>{currCharter.name}</span>
         <section>
-          <span>
-            combat
-            {' '}
-            {currCharter.powerstats?.combat}
-          </span>
-          <span>
-            durability
-            {' '}
-            {currCharter.powerstats?.durability}
-          </span>
-          {' '}
-          <span>
-            power
-            {' '}
-            {currCharter.powerstats?.power}
-          </span>
-          <span>
-            inteligence
-            {' '}
-            {currCharter.powerstats?.inteligence}
-          </span>
+          {Object.keys(currCharter.powerstats).map((currAttr: string) => (
+            <Stats key={currAttr} attr={currCharter.powerstats[currAttr]} />
+          ))}
         </section>
       </article>
     </section>

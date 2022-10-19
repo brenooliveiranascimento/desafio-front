@@ -1,8 +1,14 @@
 import React from 'react';
 
-function Stats() {
+interface attrType {
+  attr: string
+}
+
+function Stats({ attr }: attrType) {
   return (
-    <div>Stats</div>
+    <section>
+      <h1>{attr}</h1>
+    </section>
   );
 }
 

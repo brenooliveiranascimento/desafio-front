@@ -9,6 +9,7 @@ export interface powerstatsTypes {
   power: string,
   speed: string,
   strength: string
+  [key: string]: any;
 }
 
 export interface appearanceTypes {
@@ -39,14 +40,14 @@ export interface workTypes {
 }
 
 export interface heroTypes {
-  id?: string,
-  image?: imageType,
-  name?: string,
-  powerstats?: powerstatsTypes,
-  appearance?: appearanceTypes,
-  biography?: biographyType,
-  connections?: connectionsTypes,
-  work?: workTypes,
+  id: string,
+  image: imageType,
+  name: string,
+  powerstats: powerstatsTypes,
+  appearance: appearanceTypes,
+  biography: biographyType,
+  connections: connectionsTypes,
+  work: workTypes,
   response?: boolean
 }
 
