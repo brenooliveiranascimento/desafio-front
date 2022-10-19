@@ -11,12 +11,16 @@ function NewFilterBtn({ setAddNewFilter }: propTypes) {
   const [newFilterName, setNewFilterName] = useState('');
   const dispatch = useDispatch();
 
+  const addFilterInLocalStorafe = () => {
+  };
+
   const newFilter = () => {
     if (!newFilterName) return alert('Por favor Digite alguma coisa');
     dispatch(createFilter(newFilterName));
     setNewFilterName('');
     setAddNewFilter();
   };
+
   return (
     <section>
       <input
