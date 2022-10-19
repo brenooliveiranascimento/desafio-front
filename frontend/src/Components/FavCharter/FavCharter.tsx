@@ -13,21 +13,28 @@ function FavCharter({ currCharter }: currCharterTypes) {
   const heroStore: heroModulesTypes = useSelector(
     ({ herosModules }: heroModulesTypes) => herosModules,
   );
+  const { filters }: any = heroStore;
 
-  const { filters } = heroStore;
+  const verifyCharterInCurrFilter = (currFilter: any) => {
+    const checkCharter: any = filters[currFilter]
+      .some((id: string) => Number(id) === Number(currCharter.id));
+    return checkCharter;
+  };
+
   return (
     <section className="fav_container">
-
-      {showFavList ? (
+      <section>
+        <button onClick={() => setShowFavList(!showFavList)} type="button">Adicionar a alguma lista</button>
+      </section>
+      {showFavList && (
         <section className="favList_container">
-          <button onClick={() => setShowFavList(!showFavList)} type="button">Fechar</button>
+          <button className="close_btn" onClick={() => setShowFavList(!showFavList)} type="button">Fechar</button>
           {Object.keys(filters).map((currFilter: string) => (
-            <span>{currFilter}</span>
+            <section className="filter_item_container">
+              <span>{currFilter}</span>
+              <span>{verifyCharterInCurrFilter(currFilter) ? 'x' : 'o'}</span>
+            </section>
           ))}
-        </section>
-      ) : (
-        <section>
-          <button onClick={() => setShowFavList(!showFavList)} type="button">Adicionar a alguma lista</button>
         </section>
       )}
     </section>
