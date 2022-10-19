@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addCharterInFilter, removeCharterInFilter } from '../../redux/actions/genericHeroActions';
 import { updateFilters } from '../../redux/actions/herosActions';
 import { heroModulesTypes, heroTypes } from '../../types/heroTypes';
 import { updateLocalStore } from '../../utils/localStorageModel';
@@ -52,7 +51,7 @@ function FavCharter({ currCharter }: currCharterTypes) {
             className="filter_item_container"
           >
             <span>{currFilter}</span>
-            <span>{verifyCharterInCurrFilter(currFilter) ? 'x' : 'o'}</span>
+            <span>{verifyCharterInCurrFilter(currFilter) ? 'Remover' : 'Adicionar'}</span>
           </button>
         ))}
       </section>

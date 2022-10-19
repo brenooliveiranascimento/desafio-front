@@ -9,6 +9,7 @@ interface currCharterTypes {
 }
 
 function Cards({ currCharter }: currCharterTypes) {
+  console.log(currCharter);
   return (
     <section className="card_container">
       <FavCharter currCharter={currCharter} />
@@ -17,7 +18,12 @@ function Cards({ currCharter }: currCharterTypes) {
         <span className="charter_name">{currCharter.name}</span>
         <section>
           {Object.keys(currCharter.powerstats).map((currAttr: string) => (
-            <Stats key={currAttr} attr={currCharter.powerstats[currAttr]} currAttr={currAttr} />
+            <Stats
+              key={currAttr}
+              attr={JSON
+                .parse(currCharter.powerstats[currAttr])}
+              currAttr={currAttr}
+            />
           ))}
         </section>
       </article>

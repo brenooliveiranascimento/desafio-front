@@ -4,24 +4,17 @@ import CardsArea from '../../Components/CardsArea/CardsArea';
 import Filters from '../../Components/Filters/Filters';
 import Header from '../../Components/Header/Header';
 import { setFilters } from '../../redux/actions/genericHeroActions';
-import { heroModulesTypes } from '../../types/heroTypes';
-import { getLocalStorage, updateLocalStore } from '../../utils/localStorageModel';
+import { getLocalStorage } from '../../utils/localStorageModel';
 import './home.css';
 
 function Home() {
   const dispatch = useDispatch();
-  const heroStore: heroModulesTypes = useSelector(
-    ({ herosModules }: heroModulesTypes) => herosModules,
-  );
-  const { filters }: any = heroStore;
 
   useEffect(() => {
     const allFiltersInStore = getLocalStorage('HEROS_FILTERS');
-    if (!allFiltersInStore) {
-      updateLocalStore('HEROS_FILTERS', filters);
-      return;
+    if (allFiltersInStore) {
+      dispatch(setFilters(allFiltersInStore));
     }
-    dispatch(setFilters(allFiltersInStore));
   }, []);
   return (
     <section className="home_cintainer">
