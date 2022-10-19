@@ -29,6 +29,6 @@ export const requestCharters = (): any => {
       return fetchCharter;
     }));
     console.log(chaters);
-    dispatch(setChartes(setChartes));
+    dispatch(setChartes(chaters));
   };
 };

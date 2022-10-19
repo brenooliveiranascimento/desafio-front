@@ -1,23 +1,18 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { requestCharters } from '../../redux/actions/herosActions';
 import herosApi from '../../services/apiHeros/requestHeros';
 
 function CardsArea() {
   const herosInf = useSelector(({ herosModules }: any) => herosModules);
   const { currFilter, filters } = herosInf;
-  const requestCharter = async () => {
-    try {
-      const chaters = await Promise.all(filters[currFilter].map(async (currId: any) => {
-        const fetchCharter = (await herosApi.get(`${currId}`)).data;
-        return fetchCharter;
-      }));
-    } catch (error) {
-      console.log(error);
-    }
+  const dispatch = useDispatch();
+  const fetch = async () => {
+    dispatch(requestCharters());
   };
 
   useEffect(() => {
-    requestCharter();
+    fetch();
   }, [currFilter]);
   return (
     <section>

@@ -3,7 +3,7 @@ import {
 } from '../../redux_types';
 
 const STATE_INITIAL_VALUE = {
-  heros: [],
+  charter: [],
   filters: {
     marvel: [1, 2, 3, 4, 5],
     dc: [6, 7, 8, 9],
@@ -21,7 +21,7 @@ const ACTION_INITIAL_STATE: any = {
 function herosModules(state = STATE_INITIAL_VALUE, action = ACTION_INITIAL_STATE) {
   switch (action.type) {
     case FETCH_HEROS:
-      return state;
+      return { ...state, charter: action.payload };
     case ADD_HERO_IN_LIST:
       return state;
     case REMOVE_HERO_IN_LIST:
