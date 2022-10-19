@@ -13,6 +13,14 @@
   width: 300px;
 }
 
+.inf_area {
+  padding: 1rem;
+}
+
+.charter_name {
+  font-size: 2rem;
+}
+
 .stats_container {
   display: flex;
   flex-direction: column;
