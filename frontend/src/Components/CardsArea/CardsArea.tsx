@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { requestAllCharter, requestCharters } from '../../redux/actions/herosActions';
+import { heroModulesTypes } from '../../types/heroTypes';
 
 function CardsArea() {
   const dispatch = useDispatch();
 
-  const herosInf = useSelector(({ herosModules }: any) => herosModules);
+  const herosInf: heroModulesTypes = useSelector(
+    ({ herosModules }: heroModulesTypes) => herosModules,
+  );
   const { currFilter, charter, load } = herosInf;
 
   const fetchCharter = async () => {

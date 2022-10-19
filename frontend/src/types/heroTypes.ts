@@ -19,9 +19,18 @@ export interface appearanceTypes {
 }
 
 export interface heroTypes {
-  id: string,
-  image: imageType,
-  name: string,
-  powerstats: powerstatsTypes,
-  appearance: appearanceTypes,
+  id?: string,
+  image?: imageType,
+  name?: string,
+  powerstats?: powerstatsTypes,
+  appearance?: appearanceTypes,
+}
+
+export interface heroModulesTypes {
+  [key: string]: any;
+  charter: Array<heroTypes>,
+  filters: any,
+  currFilter: string,
+  countShow: number,
+  load: boolean,
 }
