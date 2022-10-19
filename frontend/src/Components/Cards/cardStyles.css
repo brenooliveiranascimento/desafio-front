@@ -33,6 +33,6 @@
 
 .statusBar_limit article {
   border-radius: 1rem;
-  background-color: red;
+  background-color: rgb(34, 28, 101);
   height: 1rem;
 }
