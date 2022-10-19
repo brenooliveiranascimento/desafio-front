@@ -4,10 +4,6 @@ import {
   ADD_HEROS, CREATE_FILTER, FETCH_HEROS, LOAD_END, LOAD_INIT, SELECT_FILTER,
 } from '../redux_types';
 
-export const setHerosInStore = async () => {
-
-};
-
 export const selectCurrFilter = (filter: string) => ({
   type: SELECT_FILTER,
   payload: filter,
@@ -48,7 +44,11 @@ export const requestCharters = (): any => {
   return async (dispatch: Dispatch<any>, state: any) => {
     dispatch(updateLoad(LOAD_INIT));
     const { currFilter, filters } = state().herosModules;
-    if (currFilter === 'All') return dispatch(requestAllCharter());
+    if (currFilter === 'All') {
+      dispatch(requestAllCharter());
+      dispatch(setChartes([], FETCH_HEROS));
+      return;
+    }
     if (currFilter === '') return;
     const chaters = await Promise.all(filters[currFilter].map(async (currId: any) => {
       const fetchCharter = (await herosApi.get(`${currId}`)).data;

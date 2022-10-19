@@ -8,14 +8,9 @@ import NewFilterBtn from '../FilterBtn/NewFilterBtn';
 function Filters() {
   const [addNewFilter, setAddNewFilter] = useState(false);
   const filters = Object.keys(useSelector(({ herosModules }:any) => herosModules.filters));
-
   return (
-    <section
-      className="filter_container"
-    >
-      {
-        filters && filters.map((filter) => <FilterBtn key={filter} filter={filter} />)
-      }
+    <section className="filter_container">
+      {filters && filters.map((filter) => <FilterBtn key={filter} filter={filter} />)}
       <section>
         <button
           onClick={() => setAddNewFilter(!addNewFilter)}
@@ -24,7 +19,6 @@ function Filters() {
         >
           <h1>{addNewFilter ? 'Cancelar' : 'Novo Filtro'}</h1>
         </button>
-
         {addNewFilter && <NewFilterBtn setAddNewFilter={() => setAddNewFilter(false)} />}
       </section>
     </section>
