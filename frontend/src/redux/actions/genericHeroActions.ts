@@ -1,4 +1,6 @@
-import { CREATE_FILTER, SELECT_FILTER, SET_FILTERS } from '../redux_types';
+import {
+  ADD_CHARTER_IN_FILTER, CREATE_FILTER, SELECT_FILTER, SET_FILTERS,
+} from '../redux_types';
 
 export const selectCurrFilter = (filter: string) => ({
   type: SELECT_FILTER,
@@ -15,6 +17,11 @@ export const setFilters = (filters: any) => ({
   payload: filters,
 });
 
+export const updateFilter = (type: string, id: string) => ({
+  type,
+  payload: id,
+});
+
 export const setChartes = (chartes: any, type: string) => ({
   type,
   payload: chartes,
@@ -22,4 +29,10 @@ export const setChartes = (chartes: any, type: string) => ({
 
 export const updateLoad = (type: string) => ({
   type,
+});
+
+export const addCharterInFilter = (id: number, filter: string) => ({
+  type: ADD_CHARTER_IN_FILTER,
+  id,
+  filter,
 });

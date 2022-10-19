@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addCharterInFilter } from '../../redux/actions/genericHeroActions';
 import { heroModulesTypes, heroTypes } from '../../types/heroTypes';
 import './favStyles.css';
 
@@ -8,6 +9,7 @@ interface currCharterTypes {
 }
 
 function FavCharter({ currCharter }: currCharterTypes) {
+  const dispatch = useDispatch();
   const [showFavList, setShowFavList] = useState(false);
 
   const heroStore: heroModulesTypes = useSelector(
@@ -21,6 +23,11 @@ function FavCharter({ currCharter }: currCharterTypes) {
     return checkCharter;
   };
 
+  const addCharter = (filterSelected: string) => {
+    console.log(filterSelected);
+    dispatch(addCharterInFilter(Number(currCharter.id), filterSelected));
+  };
+
   return (
     <section className="fav_container">
       <section
@@ -31,10 +38,15 @@ function FavCharter({ currCharter }: currCharterTypes) {
       >
         <button className="close_btn" onClick={() => setShowFavList(!showFavList)} type="button">Fechar</button>
         {Object.keys(filters).map((currFilter: string) => (
-          <section key={currFilter} className="filter_item_container">
+          <button
+            onClick={() => addCharter(currFilter)}
+            type="button"
+            key={currFilter}
+            className="filter_item_container"
+          >
             <span>{currFilter}</span>
             <span>{verifyCharterInCurrFilter(currFilter) ? 'x' : 'o'}</span>
-          </section>
+          </button>
         ))}
       </section>
       <section>

@@ -40,3 +40,9 @@ export const requestCharters = (): any => {
     dispatch(setChartes(chaters, FETCH_HEROS));
   };
 };
+
+export const updateFilters = (id: string): any => {
+  return async (dispatch: Dispatch<any>, state: any) => {
+    const { filters } = state().herosModules;
+  };
+};

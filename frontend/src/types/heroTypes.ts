@@ -63,4 +63,6 @@ export interface heroModulesTypes {
 export interface heroActionTypes {
   type: string,
   payload: any
+  id?: number
+  filter: string
 }
