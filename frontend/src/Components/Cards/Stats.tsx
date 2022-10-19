@@ -13,10 +13,7 @@ function Stats({ attr, currAttr }: attrType) {
         {attr}
       </span>
       <section className="statusBar_limit">
-        <article style={{
-          width: `${attr}%`,
-        }}
-        />
+        <article style={{ width: `${attr}%` }} />
       </section>
     </section>
   );

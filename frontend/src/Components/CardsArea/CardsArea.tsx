@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { requestAllCharter, requestCharters } from '../../redux/actions/herosActions';
 import { heroModulesTypes, heroTypes } from '../../types/heroTypes';
 import Cards from '../Cards/Cards';
+import './cardsAreaStyles.css';
 
 function CardsArea() {
   const dispatch = useDispatch();
@@ -25,10 +26,10 @@ function CardsArea() {
   }, [currFilter]);
 
   return (
-    <section>
+    <section className="cardsArea_container">
       {
         load && currFilter !== 'All' ? 'Loading' : (
-          <section>
+          <section className="card_area">
             { charter.length ? charter.map((currCharter: heroTypes) => (
               <Cards currCharter={currCharter} />
             ))
