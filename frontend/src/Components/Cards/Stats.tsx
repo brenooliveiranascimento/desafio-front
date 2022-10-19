@@ -1,13 +1,23 @@
 import React from 'react';
 
 interface attrType {
-  attr: string
+  attr: string,
+  currAttr: string
 }
 
-function Stats({ attr }: attrType) {
+function Stats({ attr, currAttr }: attrType) {
   return (
-    <section>
-      <h1>{attr}</h1>
+    <section className="stats_container">
+      <span>
+        {currAttr}
+        {attr}
+      </span>
+      <section className="statusBar_limit">
+        <article style={{
+          width: `${attr}%`,
+        }}
+        />
+      </section>
     </section>
   );
 }
