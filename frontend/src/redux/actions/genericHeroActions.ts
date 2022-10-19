@@ -1,5 +1,5 @@
 import {
-  ADD_CHARTER_IN_FILTER, CREATE_FILTER, SELECT_FILTER, SET_FILTERS,
+  ADD_CHARTER_IN_FILTER, CREATE_FILTER, REMOVE_CHARTER_IN_FILTER, SELECT_FILTER, SET_FILTERS,
 } from '../redux_types';
 
 export const selectCurrFilter = (filter: string) => ({
@@ -33,6 +33,12 @@ export const updateLoad = (type: string) => ({
 
 export const addCharterInFilter = (id: number, filter: string) => ({
   type: ADD_CHARTER_IN_FILTER,
+  id,
+  filter,
+});
+
+export const removeCharterInFilter = (id: number, filter: string) => ({
+  type: REMOVE_CHARTER_IN_FILTER,
   id,
   filter,
 });
