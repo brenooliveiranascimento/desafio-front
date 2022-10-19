@@ -34,3 +34,8 @@ export interface heroModulesTypes {
   countShow: number,
   load: boolean,
 }
+
+export interface heroActionTypes {
+  type: string,
+  payload: any
+}

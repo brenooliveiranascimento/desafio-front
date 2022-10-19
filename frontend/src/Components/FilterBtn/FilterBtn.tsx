@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createFilter, selectCurrFilter } from '../../redux/actions/herosActions';
+import { heroModulesTypes } from '../../types/heroTypes';
 
 interface filterType {
   filter: string;
@@ -8,7 +9,9 @@ interface filterType {
 
 function FilterBtn({ filter }: filterType) {
   const dispatch = useDispatch();
-  const currFilter = useSelector(({ herosModules }:any) => herosModules.currFilter);
+  const currFilter: string = useSelector(
+    ({ herosModules }:heroModulesTypes) => herosModules.currFilter,
+  );
 
   const selectFilter = (filterSelected: string) => {
     if (filterSelected === currFilter) return dispatch(selectCurrFilter(''));
