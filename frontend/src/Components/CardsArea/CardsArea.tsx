@@ -6,7 +6,7 @@ function CardsArea() {
   const dispatch = useDispatch();
 
   const herosInf = useSelector(({ herosModules }: any) => herosModules);
-  const { currFilter, charter } = herosInf;
+  const { currFilter, charter, load } = herosInf;
 
   const fetchCharter = async () => {
     dispatch(requestCharters());
@@ -26,9 +26,11 @@ function CardsArea() {
         <h1 key={currCharter.id}>{currCharter.name}</h1>
       ))
         : <h1>Nenhum personagem encontrado</h1> }
+      {currFilter === 'All' && (
       <button onClick={loadMore} type="button">
-        Load More
+        {load ? 'Loading...' : 'Load More'}
       </button>
+      )}
     </section>
   );
 }

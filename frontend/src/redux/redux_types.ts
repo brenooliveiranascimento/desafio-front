@@ -5,3 +5,5 @@ export const SELECT_FILTER = 'SELECT_FILTER';
 export const CREATE_FILTER = 'CREATE_FILTER';
 export const DELETE_FILTER = 'DELETE_FILTER';
 export const ADD_HEROS = 'ADD_HEROS';
+export const LOAD_INIT = 'LOAD_INIT';
+export const LOAD_END = 'LOAD_END';

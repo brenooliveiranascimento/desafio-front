@@ -1,7 +1,7 @@
 import { Dispatch } from 'react';
 import herosApi from '../../services/apiHeros/requestHeros';
 import {
-  ADD_HEROS, CREATE_FILTER, FETCH_HEROS, SELECT_FILTER,
+  ADD_HEROS, CREATE_FILTER, FETCH_HEROS, LOAD_END, LOAD_INIT, SELECT_FILTER,
 } from '../redux_types';
 
 export const setHerosInStore = async () => {
@@ -23,8 +23,13 @@ const setChartes = (chartes: any, type: string) => ({
   payload: chartes,
 });
 
+const updateLoad = (type: string) => ({
+  type,
+});
+
 export const requestAllCharter = (): any => {
   return async (dispatch: Dispatch<any>, state: any) => {
+    dispatch(updateLoad(LOAD_INIT));
     const { countShow } = state().herosModules;
     const idList = [];
     for (let currId = countShow; currId <= countShow + 29; currId += 1) {
@@ -35,11 +40,13 @@ export const requestAllCharter = (): any => {
       return fetchCharter;
     }));
     dispatch(setChartes(chaters, ADD_HEROS));
+    dispatch(updateLoad(LOAD_END));
   };
 };
 
 export const requestCharters = (): any => {
   return async (dispatch: Dispatch<any>, state: any) => {
+    dispatch(updateLoad(LOAD_INIT));
     const { currFilter, filters } = state().herosModules;
     if (currFilter === 'All') return dispatch(requestAllCharter());
     if (currFilter === '') return;
@@ -47,7 +54,7 @@ export const requestCharters = (): any => {
       const fetchCharter = (await herosApi.get(`${currId}`)).data;
       return fetchCharter;
     }));
-    console.log(chaters);
+    dispatch(updateLoad(LOAD_END));
     dispatch(setChartes(chaters, FETCH_HEROS));
   };
 };
