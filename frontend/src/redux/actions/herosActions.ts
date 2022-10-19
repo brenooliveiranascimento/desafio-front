@@ -1,27 +1,12 @@
 import { Dispatch } from 'react';
 import herosApi from '../../services/apiHeros/requestHeros';
+import { updateLocalStore } from '../../utils/localStorageModel';
 import {
   ADD_HEROS, CREATE_FILTER, FETCH_HEROS, LOAD_END, LOAD_INIT, SELECT_FILTER,
 } from '../redux_types';
-
-export const selectCurrFilter = (filter: string) => ({
-  type: SELECT_FILTER,
-  payload: filter,
-});
-
-export const createFilter = (filter: string) => ({
-  type: CREATE_FILTER,
-  payload: filter,
-});
-
-const setChartes = (chartes: any, type: string) => ({
-  type,
-  payload: chartes,
-});
-
-const updateLoad = (type: string) => ({
-  type,
-});
+import {
+  addCharterInFilter, removeCharterInFilter, setChartes, updateLoad,
+} from './genericHeroActions';
 
 export const requestAllCharter = (): any => {
   return async (dispatch: Dispatch<any>, state: any) => {
@@ -56,5 +41,19 @@ export const requestCharters = (): any => {
     }));
     dispatch(updateLoad(LOAD_END));
     dispatch(setChartes(chaters, FETCH_HEROS));
+  };
+};
+
+export const updateFilters = (id: number, filter: string, action: string): any => {
+  return async (dispatch: Dispatch<any>, state: any) => {
+    if (action === 'ADD') {
+      await dispatch(addCharterInFilter(id, filter));
+      const { filters } = state().herosModules;
+      updateLocalStore('HEROS_FILTERS', filters);
+      return;
+    }
+    await dispatch(removeCharterInFilter(id, filter));
+    const { filters } = state().herosModules;
+    updateLocalStore('HEROS_FILTERS', filters);
   };
 };

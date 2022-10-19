@@ -1,5 +1,4 @@
 .fav_container {
-  width: 34.6%;
   margin-top: 16.8rem;
   height: 2rem;
   align-items: center;
@@ -52,10 +51,16 @@
   width: 297px;
   border: none;
   color: white;
-  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
 
 .filter_item_container {
   display: flex;
   justify-content: space-between;
+  background-color: black;
+  color: white;
+  border-top: 1px solid white;
 }

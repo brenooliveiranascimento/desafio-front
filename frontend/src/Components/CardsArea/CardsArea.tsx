@@ -31,7 +31,7 @@ function CardsArea() {
         load && currFilter !== 'All' ? 'Loading' : (
           <section className="card_area">
             { charter.length ? charter.map((currCharter: heroTypes) => (
-              <Cards currCharter={currCharter} />
+              <Cards key={currCharter.id} currCharter={currCharter} />
             ))
               : <h1>{currFilter !== 'All' && 'Nenhum personagem encontrado'}</h1> }
           </section>

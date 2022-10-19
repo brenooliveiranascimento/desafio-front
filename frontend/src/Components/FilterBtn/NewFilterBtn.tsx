@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createFilter, selectCurrFilter } from '../../redux/actions/herosActions';
+import { createFilter } from '../../redux/actions/genericHeroActions';
+import { heroModulesTypes } from '../../types/heroTypes';
+import { getLocalStorage, updateLocalStore } from '../../utils/localStorageModel';
 import FilterBtn from './FilterBtn';
 
 interface propTypes {
@@ -10,12 +12,17 @@ interface propTypes {
 function NewFilterBtn({ setAddNewFilter }: propTypes) {
   const [newFilterName, setNewFilterName] = useState('');
   const dispatch = useDispatch();
+  const heroModules: heroModulesTypes = useSelector(
+    ({ herosModules }:heroModulesTypes) => herosModules,
+  );
 
-  const addFilterInLocalStorafe = () => {
+  const addFilterInLocalStorage = () => {
+    updateLocalStore('HEROS_FILTERS', { ...heroModules.filters, [newFilterName]: [] });
   };
 
   const newFilter = () => {
     if (!newFilterName) return alert('Por favor Digite alguma coisa');
+    addFilterInLocalStorage();
     dispatch(createFilter(newFilterName));
     setNewFilterName('');
     setAddNewFilter();

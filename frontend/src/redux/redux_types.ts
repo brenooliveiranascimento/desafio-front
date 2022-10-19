@@ -7,3 +7,6 @@ export const DELETE_FILTER = 'DELETE_FILTER';
 export const ADD_HEROS = 'ADD_HEROS';
 export const LOAD_INIT = 'LOAD_INIT';
 export const LOAD_END = 'LOAD_END';
+export const SET_FILTERS = 'SET_FILTERS';
+export const ADD_CHARTER_IN_FILTER = 'ADD_CHARTER_IN_FILTER';
+export const REMOVE_CHARTER_IN_FILTER = 'REMOVE_CHARTER_IN_FILTER';

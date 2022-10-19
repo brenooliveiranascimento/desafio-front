@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface attrType {
-  attr: string,
+  attr: any,
   currAttr: string
 }
 
@@ -10,12 +10,13 @@ function Stats({ attr, currAttr }: attrType) {
     <section className="stats_container">
       <span>
         {currAttr}
-        {attr}
+        {' '}
+        {attr || 'No information'}
       </span>
       <section className="statusBar_limit">
         <article style={{
-          width: `${attr}%`,
-          backgroundColor: Number(attr) === 100 ? 'yellow' : 'red',
+          width: `${attr || 0}%`,
+          backgroundColor: (Number(attr) === 100 ? 'yellow' : 'red'),
         }}
         />
       </section>

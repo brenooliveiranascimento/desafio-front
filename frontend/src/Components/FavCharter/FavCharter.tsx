@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { updateFilters } from '../../redux/actions/herosActions';
 import { heroModulesTypes, heroTypes } from '../../types/heroTypes';
+import { updateLocalStore } from '../../utils/localStorageModel';
 import './favStyles.css';
 
 interface currCharterTypes {
@@ -8,6 +10,7 @@ interface currCharterTypes {
 }
 
 function FavCharter({ currCharter }: currCharterTypes) {
+  const dispatch = useDispatch();
   const [showFavList, setShowFavList] = useState(false);
 
   const heroStore: heroModulesTypes = useSelector(
@@ -21,9 +24,18 @@ function FavCharter({ currCharter }: currCharterTypes) {
     return checkCharter;
   };
 
+  const addCharter = (filterSelected: string) => {
+    if (verifyCharterInCurrFilter(filterSelected)) {
+      dispatch(updateFilters(Number(currCharter.id), filterSelected, 'REMOVE'));
+      updateLocalStore('HEROS_FILTERS', filters);
+      return;
+    }
+    dispatch(updateFilters(Number(currCharter.id), filterSelected, 'ADD'));
+    updateLocalStore('HEROS_FILTERS', filters);
+  };
+
   return (
     <section className="fav_container">
-
       <section
         style={{
           marginTop: !showFavList ? '11rem' : '-7rem',
@@ -32,10 +44,15 @@ function FavCharter({ currCharter }: currCharterTypes) {
       >
         <button className="close_btn" onClick={() => setShowFavList(!showFavList)} type="button">Fechar</button>
         {Object.keys(filters).map((currFilter: string) => (
-          <section className="filter_item_container">
+          <button
+            onClick={() => addCharter(currFilter)}
+            type="button"
+            key={currFilter}
+            className="filter_item_container"
+          >
             <span>{currFilter}</span>
-            <span>{verifyCharterInCurrFilter(currFilter) ? 'x' : 'o'}</span>
-          </section>
+            <span>{verifyCharterInCurrFilter(currFilter) ? 'Remover' : 'Adicionar'}</span>
+          </button>
         ))}
       </section>
       <section>

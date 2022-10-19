@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './filters.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { createFilter, selectCurrFilter } from '../../redux/actions/herosActions';
 import FilterBtn from '../FilterBtn/FilterBtn';
 import NewFilterBtn from '../FilterBtn/NewFilterBtn';
 import { heroModulesTypes } from '../../types/heroTypes';

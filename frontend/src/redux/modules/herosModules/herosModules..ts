@@ -1,13 +1,16 @@
 import { heroActionTypes, heroModulesTypes } from '../../../types/heroTypes';
 import {
+  ADD_CHARTER_IN_FILTER,
   ADD_HEROS,
   ADD_HERO_IN_LIST,
   CREATE_FILTER, DELETE_FILTER,
   FETCH_HEROS,
   LOAD_END,
   LOAD_INIT,
+  REMOVE_CHARTER_IN_FILTER,
   REMOVE_HERO_IN_LIST,
   SELECT_FILTER,
+  SET_FILTERS,
 } from '../../redux_types';
 
 const STATE_INITIAL_VALUE: heroModulesTypes = {
@@ -26,9 +29,12 @@ const STATE_INITIAL_VALUE: heroModulesTypes = {
 const ACTION_INITIAL_STATE: heroActionTypes = {
   type: '',
   payload: {},
+  id: 0,
+  filter: '',
 };
 
 function herosModules(state = STATE_INITIAL_VALUE, action = ACTION_INITIAL_STATE) {
+  console.log(action);
   switch (action.type) {
     case LOAD_INIT:
       return { ...state, load: true };
@@ -50,6 +56,25 @@ function herosModules(state = STATE_INITIAL_VALUE, action = ACTION_INITIAL_STATE
       return { ...state, currFilter: action.payload, countShow: 1 };
     case CREATE_FILTER:
       return { ...state, filters: { ...state.filters, [action.payload]: [] } };
+    case SET_FILTERS:
+      return { ...state, filters: action.payload };
+    case ADD_CHARTER_IN_FILTER:
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          [action.filter]: [...state.filters[action.filter], action.id],
+        },
+      };
+    case REMOVE_CHARTER_IN_FILTER:
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          [action.filter]: state.filters[action.filter]
+            .filter((currId: string) => Number(currId) !== action.id),
+        },
+      };
     case DELETE_FILTER:
       return state;
     default:
