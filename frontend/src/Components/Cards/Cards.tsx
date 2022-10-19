@@ -1,6 +1,5 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { heroTypes, heroModulesTypes } from '../../types/heroTypes';
+import { heroTypes } from '../../types/heroTypes';
 import Stats from './Stats';
 import './cardStyles.css';
 import FavCharter from '../FavCharter/FavCharter';
@@ -10,15 +9,6 @@ interface currCharterTypes {
 }
 
 function Cards({ currCharter }: currCharterTypes) {
-  const dispatch = useDispatch();
-
-  const heroStore: heroModulesTypes = useSelector(
-    ({ herosModules }: heroModulesTypes) => herosModules,
-  );
-
-  const { filters } = heroStore;
-  console.log(filters);
-
   return (
     <section className="card_container">
       <FavCharter currCharter={currCharter} />
