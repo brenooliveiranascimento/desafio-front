@@ -18,16 +18,36 @@ export interface appearanceTypes {
   weight: string
 }
 
+export interface biographyType {
+  aliases: Array<string>,
+  alignment: string,
+  'alter-egos': string,
+  'first-appearance': string,
+  'full-name': string,
+  'place-of-birth': string,
+  publisher: string,
+}
+
+export interface connectionsTypes {
+  'group-affiliation': string,
+  relatives: string,
+}
+
+export interface workTypes {
+  base: string,
+  occupation: string,
+}
+
 export interface heroTypes {
   id?: string,
   image?: imageType,
   name?: string,
   powerstats?: powerstatsTypes,
   appearance?: appearanceTypes,
-  biography?: {},
-  connections?: {},
-  work?: {},
-  response?: {}
+  biography?: biographyType,
+  connections?: connectionsTypes,
+  work?: workTypes,
+  response?: boolean
 }
 
 export interface heroModulesTypes {
