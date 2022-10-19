@@ -28,11 +28,10 @@ function CardsArea() {
             { charter.length ? charter.map((currCharter: any) => (
               <h1 key={currCharter.id}>{currCharter.name}</h1>
             ))
-              : <h1>Nenhum personagem encontrado</h1> }
+              : <h1>{currFilter !== 'All' && 'Nenhum personagem encontrado'}</h1> }
           </section>
         )
       }
-
       {currFilter === 'All' && (
       <button onClick={loadMore} type="button">
         {load ? 'Loading...' : 'Load More'}
