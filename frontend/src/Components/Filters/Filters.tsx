@@ -4,10 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createFilter, selectCurrFilter } from '../../redux/actions/herosActions';
 import FilterBtn from '../FilterBtn/FilterBtn';
 import NewFilterBtn from '../FilterBtn/NewFilterBtn';
+import { heroModulesTypes } from '../../types/heroTypes';
 
 function Filters() {
   const [addNewFilter, setAddNewFilter] = useState(false);
-  const filters = Object.keys(useSelector(({ herosModules }:any) => herosModules.filters));
+  const filters: Array<string> = Object.keys(useSelector(
+    ({ herosModules }:heroModulesTypes) => herosModules.filters,
+  ));
   return (
     <section className="filter_container">
       {filters && filters.map((filter) => <FilterBtn key={filter} filter={filter} />)}

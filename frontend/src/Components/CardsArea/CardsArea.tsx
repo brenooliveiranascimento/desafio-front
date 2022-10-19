@@ -1,11 +1,16 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { requestAllCharter, requestCharters } from '../../redux/actions/herosActions';
+import { heroModulesTypes, heroTypes } from '../../types/heroTypes';
+import Cards from '../Cards/Cards';
+import './cardsAreaStyles.css';
 
 function CardsArea() {
   const dispatch = useDispatch();
 
-  const herosInf = useSelector(({ herosModules }: any) => herosModules);
+  const herosInf: heroModulesTypes = useSelector(
+    ({ herosModules }: heroModulesTypes) => herosModules,
+  );
   const { currFilter, charter, load } = herosInf;
 
   const fetchCharter = async () => {
@@ -21,12 +26,12 @@ function CardsArea() {
   }, [currFilter]);
 
   return (
-    <section>
+    <section className="cardsArea_container">
       {
         load && currFilter !== 'All' ? 'Loading' : (
-          <section>
-            { charter.length ? charter.map((currCharter: any) => (
-              <h1 key={currCharter.id}>{currCharter.name}</h1>
+          <section className="card_area">
+            { charter.length ? charter.map((currCharter: heroTypes) => (
+              <Cards currCharter={currCharter} />
             ))
               : <h1>{currFilter !== 'All' && 'Nenhum personagem encontrado'}</h1> }
           </section>

@@ -1,8 +1,27 @@
 import React from 'react';
+import { heroTypes } from '../../types/heroTypes';
+import Stats from './Stats';
+import './cardStyles.css';
+import FavCharter from '../FavCharter/FavCharter';
 
-function Cards() {
+interface currCharterTypes {
+  currCharter: heroTypes
+}
+
+function Cards({ currCharter }: currCharterTypes) {
   return (
-    <div>Cards</div>
+    <section className="card_container">
+      <FavCharter currCharter={currCharter} />
+      <img src={currCharter.image?.url} alt={currCharter.name} />
+      <article className="inf_area">
+        <span className="charter_name">{currCharter.name}</span>
+        <section>
+          {Object.keys(currCharter.powerstats).map((currAttr: string) => (
+            <Stats key={currAttr} attr={currCharter.powerstats[currAttr]} currAttr={currAttr} />
+          ))}
+        </section>
+      </article>
+    </section>
   );
 }
 

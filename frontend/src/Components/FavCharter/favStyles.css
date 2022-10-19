@@ -1,0 +1,61 @@
+.fav_container {
+  width: 34.6%;
+  margin-top: 16.8rem;
+  height: 2rem;
+  align-items: center;
+  display: flex;
+  transition: all 0.5s;
+  position: absolute;
+  z-index: 0;
+}
+
+.favList_container {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  transition: all 0.5s;
+  z-index: 0;
+  height: 9rem;
+  overflow-x: hidden;
+  position: absolute;
+}
+
+.favList_container::-webkit-scrollbar {
+  width: 3px;
+}
+
+.favList_container::-webkit-scrollbar-track {
+  background: grey; 
+}
+
+.favList_container::-webkit-scrollbar-thumb {
+  background-color: white;
+}
+
+.favList_container span {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: 0.3rem;
+}
+
+.show_fav_btn {
+  border: none;
+  background-color: rgba(0,0,0,0.3);
+  margin-top: -0.9rem;
+  width: 300px;
+  color: white;
+  padding: 1rem;
+}
+
+.close_btn {
+  background-color: rgba(0,0,0,0.3);
+  width: 297px;
+  border: none;
+  color: white;
+  margin-top: 1rem;
+}
+
+.filter_item_container {
+  display: flex;
+  justify-content: space-between;
+}

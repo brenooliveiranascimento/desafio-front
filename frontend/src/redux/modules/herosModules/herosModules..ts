@@ -1,3 +1,4 @@
+import { heroActionTypes, heroModulesTypes } from '../../../types/heroTypes';
 import {
   ADD_HEROS,
   ADD_HERO_IN_LIST,
@@ -9,7 +10,7 @@ import {
   SELECT_FILTER,
 } from '../../redux_types';
 
-const STATE_INITIAL_VALUE = {
+const STATE_INITIAL_VALUE: heroModulesTypes = {
   charter: [],
   filters: {
     marvel: [346, 333, 332, 345, 149],
@@ -22,7 +23,7 @@ const STATE_INITIAL_VALUE = {
   load: false,
 };
 
-const ACTION_INITIAL_STATE: any = {
+const ACTION_INITIAL_STATE: heroActionTypes = {
   type: '',
   payload: {},
 };
