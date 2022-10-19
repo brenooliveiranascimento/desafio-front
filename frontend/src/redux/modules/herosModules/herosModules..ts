@@ -8,6 +8,7 @@ import {
   LOAD_INIT,
   REMOVE_HERO_IN_LIST,
   SELECT_FILTER,
+  SET_FILTERS,
 } from '../../redux_types';
 
 const STATE_INITIAL_VALUE: heroModulesTypes = {
@@ -50,6 +51,8 @@ function herosModules(state = STATE_INITIAL_VALUE, action = ACTION_INITIAL_STATE
       return { ...state, currFilter: action.payload, countShow: 1 };
     case CREATE_FILTER:
       return { ...state, filters: { ...state.filters, [action.payload]: [] } };
+    case SET_FILTERS:
+      return { ...state, filters: action.payload };
     case DELETE_FILTER:
       return state;
     default:
