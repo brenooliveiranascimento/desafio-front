@@ -2,10 +2,10 @@ import { Dispatch } from 'react';
 import herosApi from '../../services/apiHeros/requestHeros';
 import { updateLocalStore } from '../../utils/localStorageModel';
 import {
-  ADD_HEROS, CREATE_FILTER, FETCH_HEROS, LOAD_END, LOAD_INIT, SELECT_FILTER,
+  ADD_HEROS, CREATE_LIST, FETCH_HEROS, LOAD_END, LOAD_INIT, SELECT_LIST,
 } from '../redux_types';
 import {
-  addCharterInFilter, removeCharterInFilter, setChartes, updateLoad,
+  addCharterInLists, removeCharterInList, setChartes, updateLoad,
 } from './genericHeroActions';
 
 export const requestAllCharter = (): any => {
@@ -28,14 +28,14 @@ export const requestAllCharter = (): any => {
 export const requestCharters = (): any => {
   return async (dispatch: Dispatch<any>, state: any) => {
     dispatch(updateLoad(LOAD_INIT));
-    const { currFilter, filters } = state().herosModules;
+    const { currFilter, lists } = state().herosModules;
     if (currFilter === 'All') {
       dispatch(requestAllCharter());
       dispatch(setChartes([], FETCH_HEROS));
       return;
     }
     if (currFilter === '') return;
-    const chaters = await Promise.all(filters[currFilter].map(async (currId: any) => {
+    const chaters = await Promise.all(lists[currFilter].map(async (currId: any) => {
       const fetchCharter = (await herosApi.get(`${currId}`)).data;
       return fetchCharter;
     }));
@@ -47,13 +47,13 @@ export const requestCharters = (): any => {
 export const updateFilters = (id: number, filter: string, action: string): any => {
   return async (dispatch: Dispatch<any>, state: any) => {
     if (action === 'ADD') {
-      await dispatch(addCharterInFilter(id, filter));
-      const { filters } = state().herosModules;
-      updateLocalStore('HEROS_FILTERS', filters);
+      await dispatch(addCharterInLists(id, filter));
+      const { lists } = state().herosModules;
+      updateLocalStore('HEROS_FILTERS', lists);
       return;
     }
-    await dispatch(removeCharterInFilter(id, filter));
-    const { filters } = state().herosModules;
-    updateLocalStore('HEROS_FILTERS', filters);
+    await dispatch(removeCharterInList(id, filter));
+    const { lists } = state().herosModules;
+    updateLocalStore('HEROS_FILTERS', lists);
   };
 };

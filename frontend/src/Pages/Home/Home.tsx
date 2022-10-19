@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import CardsArea from '../../Components/CardsArea/CardsArea';
-import Filters from '../../Components/Filters/Filters';
+import Filters from '../../Components/Filters/Lists';
 import Header from '../../Components/Header/Header';
-import { setFilters } from '../../redux/actions/genericHeroActions';
+import { setLists } from '../../redux/actions/genericHeroActions';
 import { getLocalStorage } from '../../utils/localStorageModel';
 import './home.css';
 
@@ -12,8 +12,8 @@ function Home() {
 
   useEffect(() => {
     const allFiltersInStore = getLocalStorage('HEROS_FILTERS');
-    if (allFiltersInStore) {
-      dispatch(setFilters(allFiltersInStore));
+    if (Object.keys(allFiltersInStore).length) {
+      dispatch(setLists(allFiltersInStore));
     }
   }, []);
   return (

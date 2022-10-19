@@ -9,7 +9,6 @@ interface currCharterTypes {
 }
 
 function Cards({ currCharter }: currCharterTypes) {
-  console.log(currCharter);
   return (
     <section className="card_container">
       <FavCharter currCharter={currCharter} />
