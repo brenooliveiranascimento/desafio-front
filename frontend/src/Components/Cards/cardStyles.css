@@ -5,6 +5,7 @@
   flex-direction: column;
   background-color: #414244;
   margin: 1rem 1rem 3rem;
+  z-index: 99;
 }
 
 .card_container img {
@@ -15,6 +16,8 @@
 
 .inf_area {
   padding: 1rem;
+  z-index: 99;
+  background-color: #414244;
 }
 
 .charter_name {

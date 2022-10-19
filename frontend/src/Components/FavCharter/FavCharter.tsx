@@ -23,20 +23,24 @@ function FavCharter({ currCharter }: currCharterTypes) {
 
   return (
     <section className="fav_container">
-      <section>
-        <button onClick={() => setShowFavList(!showFavList)} type="button">Adicionar a alguma lista</button>
+
+      <section
+        style={{
+          marginTop: !showFavList ? '11rem' : '-7rem',
+        }}
+        className="favList_container"
+      >
+        <button className="close_btn" onClick={() => setShowFavList(!showFavList)} type="button">Fechar</button>
+        {Object.keys(filters).map((currFilter: string) => (
+          <section className="filter_item_container">
+            <span>{currFilter}</span>
+            <span>{verifyCharterInCurrFilter(currFilter) ? 'x' : 'o'}</span>
+          </section>
+        ))}
       </section>
-      {showFavList && (
-        <section className="favList_container">
-          <button className="close_btn" onClick={() => setShowFavList(!showFavList)} type="button">Fechar</button>
-          {Object.keys(filters).map((currFilter: string) => (
-            <section className="filter_item_container">
-              <span>{currFilter}</span>
-              <span>{verifyCharterInCurrFilter(currFilter) ? 'x' : 'o'}</span>
-            </section>
-          ))}
-        </section>
-      )}
+      <section>
+        <button className="show_fav_btn" onClick={() => setShowFavList(!showFavList)} type="button">Adicionar a alguma lista</button>
+      </section>
     </section>
   );
 }

@@ -6,15 +6,30 @@
   display: flex;
   transition: all 0.5s;
   position: absolute;
+  z-index: 0;
 }
 
 .favList_container {
   display: flex;
   flex-direction: column;
-  margin-top: 4rem;
   background-color: black;
   transition: all 0.5s;
+  z-index: 0;
+  height: 9rem;
+  overflow-x: hidden;
   position: absolute;
+}
+
+.favList_container::-webkit-scrollbar {
+  width: 3px;
+}
+
+.favList_container::-webkit-scrollbar-track {
+  background: grey; 
+}
+
+.favList_container::-webkit-scrollbar-thumb {
+  background-color: white;
 }
 
 .favList_container span {
@@ -23,14 +38,21 @@
   margin: 0.3rem;
 }
 
-.fav_container button {
+.show_fav_btn {
   border: none;
   background-color: rgba(0,0,0,0.3);
   margin-top: -0.9rem;
   width: 300px;
-  transition: all 0.5s;
   color: white;
   padding: 1rem;
+}
+
+.close_btn {
+  background-color: rgba(0,0,0,0.3);
+  width: 299px;
+  border: none;
+  color: white;
+  margin-top: 1rem;
 }
 
 .filter_item_container {
