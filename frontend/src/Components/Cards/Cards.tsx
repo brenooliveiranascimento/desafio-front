@@ -1,8 +1,15 @@
 import React from 'react';
+import { heroTypes } from '../../types/heroTypes';
 
-function Cards() {
+interface currCharterTypes {
+  currCharter: heroTypes
+}
+
+function Cards({ currCharter }: currCharterTypes) {
   return (
-    <div>Cards</div>
+    <section>
+      <img style={{ width: 100 }} src={currCharter.image?.url} alt={currCharter.name} />
+    </section>
   );
 }
 

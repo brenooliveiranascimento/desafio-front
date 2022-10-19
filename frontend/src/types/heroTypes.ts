@@ -15,7 +15,7 @@ export interface appearanceTypes {
   'eye-color': string,
   gender: string,
   'hair-color': string,
-  weight: [string]
+  weight: string
 }
 
 export interface heroTypes {
@@ -24,6 +24,10 @@ export interface heroTypes {
   name?: string,
   powerstats?: powerstatsTypes,
   appearance?: appearanceTypes,
+  biography?: {},
+  connections?: {},
+  work?: {},
+  response?: {}
 }
 
 export interface heroModulesTypes {
