@@ -1,6 +1,8 @@
 import { Dispatch } from 'react';
 import herosApi from '../../services/apiHeros/requestHeros';
-import { CREATE_FILTER, FETCH_HEROS, SELECT_FILTER } from '../redux_types';
+import {
+  ADD_HEROS, CREATE_FILTER, FETCH_HEROS, SELECT_FILTER,
+} from '../redux_types';
 
 export const setHerosInStore = async () => {
 
@@ -16,19 +18,36 @@ export const createFilter = (filter: string) => ({
   payload: filter,
 });
 
-const setChartes = (chartes: any) => ({
-  type: FETCH_HEROS,
+const setChartes = (chartes: any, type: string) => ({
+  type,
   payload: chartes,
 });
+
+export const requestAllCharter = (): any => {
+  return async (dispatch: Dispatch<any>, state: any) => {
+    const { countShow } = state().herosModules;
+    const idList = [];
+    for (let currId = countShow; currId <= countShow + 29; currId += 1) {
+      idList.push(currId);
+    }
+    const chaters = await Promise.all(idList.map(async (currId: any) => {
+      const fetchCharter = (await herosApi.get(`${currId}`)).data;
+      return fetchCharter;
+    }));
+    dispatch(setChartes(chaters, ADD_HEROS));
+  };
+};
 
 export const requestCharters = (): any => {
   return async (dispatch: Dispatch<any>, state: any) => {
     const { currFilter, filters } = state().herosModules;
+    if (currFilter === 'All') return dispatch(requestAllCharter());
+    if (currFilter === '') return;
     const chaters = await Promise.all(filters[currFilter].map(async (currId: any) => {
       const fetchCharter = (await herosApi.get(`${currId}`)).data;
       return fetchCharter;
     }));
     console.log(chaters);
-    dispatch(setChartes(chaters));
+    dispatch(setChartes(chaters, FETCH_HEROS));
   };
 };
