@@ -31,7 +31,7 @@ function FavCharter({ currCharter }: currCharterTypes) {
       >
         <button className="close_btn" onClick={() => setShowFavList(!showFavList)} type="button">Fechar</button>
         {Object.keys(filters).map((currFilter: string) => (
-          <section className="filter_item_container">
+          <section key={currFilter} className="filter_item_container">
             <span>{currFilter}</span>
             <span>{verifyCharterInCurrFilter(currFilter) ? 'x' : 'o'}</span>
           </section>
