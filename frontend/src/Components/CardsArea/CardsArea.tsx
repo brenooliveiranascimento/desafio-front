@@ -1,22 +1,22 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { requestCharters } from '../../redux/actions/herosActions';
-import herosApi from '../../services/apiHeros/requestHeros';
 
 function CardsArea() {
   const herosInf = useSelector(({ herosModules }: any) => herosModules);
-  const { currFilter, filters } = herosInf;
+  const { currFilter, charter } = herosInf;
   const dispatch = useDispatch();
-  const fetch = async () => {
+  const fetchCharter = async () => {
     dispatch(requestCharters());
   };
 
   useEffect(() => {
-    fetch();
+    fetchCharter();
   }, [currFilter]);
   return (
     <section>
-      <h1>djiwad</h1>
+      { charter.length ? charter.map((currCharter: any) => <h1>{currCharter.name}</h1>)
+        : <h1>Nenhum personagem encontrado</h1> }
     </section>
   );
 }
