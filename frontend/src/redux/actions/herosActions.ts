@@ -3,25 +3,7 @@ import herosApi from '../../services/apiHeros/requestHeros';
 import {
   ADD_HEROS, CREATE_FILTER, FETCH_HEROS, LOAD_END, LOAD_INIT, SELECT_FILTER,
 } from '../redux_types';
-
-export const selectCurrFilter = (filter: string) => ({
-  type: SELECT_FILTER,
-  payload: filter,
-});
-
-export const createFilter = (filter: string) => ({
-  type: CREATE_FILTER,
-  payload: filter,
-});
-
-const setChartes = (chartes: any, type: string) => ({
-  type,
-  payload: chartes,
-});
-
-const updateLoad = (type: string) => ({
-  type,
-});
+import { setChartes, updateLoad } from './genericHeroActions';
 
 export const requestAllCharter = (): any => {
   return async (dispatch: Dispatch<any>, state: any) => {

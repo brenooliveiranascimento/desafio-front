@@ -23,7 +23,6 @@ function FavCharter({ currCharter }: currCharterTypes) {
 
   return (
     <section className="fav_container">
-
       <section
         style={{
           marginTop: !showFavList ? '11rem' : '-7rem',

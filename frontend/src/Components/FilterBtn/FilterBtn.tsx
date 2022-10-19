@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createFilter, selectCurrFilter } from '../../redux/actions/herosActions';
+import { selectCurrFilter } from '../../redux/actions/genericHeroActions';
 import { heroModulesTypes } from '../../types/heroTypes';
 
 interface filterType {
