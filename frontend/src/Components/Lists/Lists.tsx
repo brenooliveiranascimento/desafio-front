@@ -7,6 +7,7 @@ import { heroModulesTypes } from '../../types/heroTypes';
 
 function Lists() {
   const [addNewList, setAddNewList] = useState(false);
+  const [charterName, setCharterName] = useState('');
 
   const lists: Array<string> = Object.keys(useSelector(
     ({ herosModules }:heroModulesTypes) => herosModules.lists,
@@ -24,6 +25,13 @@ function Lists() {
           <h1>{addNewList ? 'Cancelar' : 'Nova Lista'}</h1>
         </button>
         {addNewList && <NewListBtn setAddNewFilter={() => setAddNewList(false)} />}
+      </section>
+      <section>
+        <span>Pesquisar pelo nome</span>
+        <input />
+        <button type="button">
+          Pesquisar
+        </button>
       </section>
     </section>
   );
