@@ -1,14 +1,15 @@
 .filter_container {
   display: flex;
-  width: 70%;
+  max-width: 1540px;
   height: auto;
-  padding: 2rem;
+  padding: 3rem 7.5rem;
   background-color: #272A2F;
   color: white;
-  margin-top: -3rem;
+  margin-top: -5rem;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 5rem;
 }
 
 .filter_button {

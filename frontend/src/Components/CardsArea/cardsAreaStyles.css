@@ -3,10 +3,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: black;
 }
 
 .card_area {
+  max-width: 1540px;
   display: flex;
   align-items: center;
   justify-content: center;
