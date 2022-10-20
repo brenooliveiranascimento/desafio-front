@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createFilter } from '../../redux/actions/genericHeroActions';
-import { heroModulesTypes } from '../../types/heroTypes';
-import { getLocalStorage, updateLocalStore } from '../../utils/localStorageModel';
+import { createFilter } from '../../../redux/actions/genericHeroActions';
+import { heroModulesTypes } from '../../../types/heroTypes';
+import { updateLocalStore } from '../../../utils/localStorageModel';
 import ListBtn from './ListBtn';
 
 interface propTypes {

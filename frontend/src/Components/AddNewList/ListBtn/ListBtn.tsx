@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FiTrash2 } from 'react-icons/fi';
-import { selectCurrList, genericUpdateLists } from '../../redux/actions/genericHeroActions';
-import { DELETE_LIST, REMOVE_LIST } from '../../redux/redux_types';
-import { heroModulesTypes } from '../../types/heroTypes';
 import './listBtn.css';
-import { updateLocalStore } from '../../utils/localStorageModel';
+import { heroModulesTypes } from '../../../types/heroTypes';
+import { genericUpdateLists, selectCurrList } from '../../../redux/actions/genericHeroActions';
+import { updateLocalStore } from '../../../utils/localStorageModel';
+import { REMOVE_LIST } from '../../../redux/redux_types';
 
 interface listType {
   list: string;
