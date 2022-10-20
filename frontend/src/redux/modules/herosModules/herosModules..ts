@@ -18,9 +18,9 @@ import {
 const STATE_INITIAL_VALUE: heroModulesTypes = {
   charter: [],
   lists: {
-    marvel: [346, 333, 332, 345, 149],
-    dc: [6, 7, 8, 9],
-    villains: [10, 11, 12],
+    marvel: [346, 333, 332, 345, 149, 717],
+    dc: [69, 60, 195, 204],
+    villains: [204, 370, 379, 731, 678],
     All: [],
   },
   currList: 'All',
