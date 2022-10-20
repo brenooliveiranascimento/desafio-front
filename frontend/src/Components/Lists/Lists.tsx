@@ -13,11 +13,11 @@ function Lists() {
 
   return (
     <section className="filter_container">
-      <section style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <section className="filter_btn_area">
         {lists && lists.map((list) => <ListBtn key={list} list={list} />)}
       </section>
-      <SearchByName />
       <AddNewList />
+      <SearchByName />
     </section>
   );
 }

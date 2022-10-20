@@ -3,10 +3,10 @@ import herosApi from '../../services/apiHeros/requestHeros';
 import { updateLocalStore } from '../../utils/localStorageModel';
 import {
   ADD_CHARTER_IN_LIST,
-  FETCH_HEROS, LOAD_END, LOAD_INIT, REMOVE_CHARTER_IN_LIST,
+  FETCH_HEROS, LOAD_END, LOAD_INIT, REMOVE_CHARTER_IN_LIST, SELECT_LIST,
 } from '../redux_types';
 import {
-  charterControl, setChartes, updateLoad,
+  charterControl, genericUpdateLists, setChartes, updateLoad,
 } from './genericHeroActions';
 
 export const updateLists = (id: number, list: string, action: string): any => {

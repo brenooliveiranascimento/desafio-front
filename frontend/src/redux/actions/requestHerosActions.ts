@@ -1,9 +1,9 @@
 import { Dispatch } from 'react';
 import herosApi from '../../services/apiHeros/requestHeros';
 import {
-  ADD_HEROS, FETCH_HEROS, LOAD_END, LOAD_INIT,
+  ADD_HEROS, FETCH_HEROS, LOAD_END, LOAD_INIT, SELECT_LIST,
 } from '../redux_types';
-import { setChartes, updateLoad } from './genericHeroActions';
+import { genericUpdateLists, setChartes, updateLoad } from './genericHeroActions';
 
 export const requestAllCharter = (): any => {
   return async (dispatch: Dispatch<any>, state: any) => {
