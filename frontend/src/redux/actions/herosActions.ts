@@ -3,10 +3,10 @@ import herosApi from '../../services/apiHeros/requestHeros';
 import { updateLocalStore } from '../../utils/localStorageModel';
 import {
   ADD_CHARTER_IN_LIST,
-  FETCH_HEROS, LOAD_END, LOAD_INIT, REMOVE_CHARTER_IN_LIST, SELECT_LIST,
+  FETCH_HEROS, LOAD_END, LOAD_INIT, REMOVE_CHARTER_IN_LIST,
 } from '../redux_types';
 import {
-  charterControl, genericUpdateLists, setChartes, updateLoad,
+  charterControl, setChartes, updateLoad,
 } from './genericHeroActions';
 
 export const updateLists = (id: number, list: string, action: string): any => {
@@ -28,7 +28,6 @@ export const searchCharterByName = (name:string): any => {
     dispatch(updateLoad(LOAD_INIT));
     const { results }: any = await (await herosApi.get(`search/${name}`)).data;
     if (!results) return alert('Personagem não encontrado!');
-    dispatch(genericUpdateLists(SELECT_LIST, ''));
     dispatch(updateLoad(LOAD_END));
     dispatch(setChartes(results, FETCH_HEROS));
   };
