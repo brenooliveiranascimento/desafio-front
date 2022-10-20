@@ -12,11 +12,6 @@ export const createFilter = (filter: string) => ({
   payload: filter,
 });
 
-export const setLists = (filters: any) => ({
-  type: SET_LIST,
-  payload: filters,
-});
-
 export const genericUpdateLists = (type: string, id: any) => ({
   type,
   payload: id,

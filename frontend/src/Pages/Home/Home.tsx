@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import CardsArea from '../../Components/CardsArea/CardsArea';
 import Lists from '../../Components/Lists/Lists';
 import Header from '../../Components/Header/Header';
-import { setLists } from '../../redux/actions/genericHeroActions';
+import { genericUpdateLists } from '../../redux/actions/genericHeroActions';
 import { getLocalStorage } from '../../utils/localStorageModel';
 import './home.css';
+import { SET_LIST } from '../../redux/redux_types';
 
 function Home() {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ function Home() {
   useEffect(() => {
     const allListInStore = getLocalStorage('HEROS_LISTS');
     if (Object.keys(allListInStore).length) {
-      dispatch(setLists(allListInStore));
+      dispatch(genericUpdateLists(SET_LIST, allListInStore));
     }
   }, []);
   return (
