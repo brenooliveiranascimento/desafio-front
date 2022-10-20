@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FiTrash2 } from 'react-icons/fi';
 import './listBtn.css';
 import { heroModulesTypes } from '../../../types/heroTypes';
-import { genericUpdateLists, selectCurrList } from '../../../redux/actions/genericHeroActions';
+import { genericUpdateLists } from '../../../redux/actions/genericHeroActions';
 import { updateLocalStore } from '../../../utils/localStorageModel';
-import { REMOVE_LIST } from '../../../redux/redux_types';
+import { REMOVE_LIST, SELECT_LIST } from '../../../redux/redux_types';
 
 interface listType {
   list: string;
@@ -22,8 +22,8 @@ function ListBtn({ list }: listType) {
   );
 
   const selectFilter = (filterSelected: string) => {
-    if (filterSelected === currList) return dispatch(selectCurrList(''));
-    dispatch(selectCurrList(filterSelected));
+    if (filterSelected === currList) return dispatch(genericUpdateLists(SELECT_LIST, ''));
+    dispatch(genericUpdateLists(SELECT_LIST, filterSelected));
   };
 
   const deleteList = () => {

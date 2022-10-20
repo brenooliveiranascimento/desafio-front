@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { requestAllCharter, requestCharters } from '../../redux/actions/herosActions';
+import { requestAllCharter, requestCharters } from '../../redux/actions/requestHerosActions';
 import { heroModulesTypes, heroTypes } from '../../types/heroTypes';
 import Cards from '../Cards/Cards';
 import './cardsAreaStyles.css';

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createFilter } from '../../../redux/actions/genericHeroActions';
+import { genericUpdateLists } from '../../../redux/actions/genericHeroActions';
+import { CREATE_LIST } from '../../../redux/redux_types';
 import { heroModulesTypes } from '../../../types/heroTypes';
 import { updateLocalStore } from '../../../utils/localStorageModel';
 import ListBtn from './ListBtn';
@@ -23,7 +24,7 @@ function NewListBtn({ setAddNewFilter }: propTypes) {
   const newFilter = () => {
     if (!newFilterName) return alert('Por favor Digite alguma coisa');
     addFilterInLocalStorage();
-    dispatch(createFilter(newFilterName));
+    dispatch(genericUpdateLists(CREATE_LIST, newFilterName));
     setNewFilterName('');
     setAddNewFilter();
   };
