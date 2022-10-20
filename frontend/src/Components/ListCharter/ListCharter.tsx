@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateFilters } from '../../redux/actions/herosActions';
+import { updateLists } from '../../redux/actions/herosActions';
 import { heroModulesTypes, heroTypes } from '../../types/heroTypes';
 import { updateLocalStore } from '../../utils/localStorageModel';
 import './listStyles.css';
@@ -26,11 +26,11 @@ function ListCharter({ currCharter }: currCharterTypes) {
 
   const addCharter = (filterSelected: string) => {
     if (verifyCharterInCurrFilter(filterSelected)) {
-      dispatch(updateFilters(Number(currCharter.id), filterSelected, 'REMOVE'));
+      dispatch(updateLists(Number(currCharter.id), filterSelected, 'REMOVE'));
       updateLocalStore('HEROS_LISTS', lists);
       return;
     }
-    dispatch(updateFilters(Number(currCharter.id), filterSelected, 'ADD'));
+    dispatch(updateLists(Number(currCharter.id), filterSelected, 'ADD'));
     updateLocalStore('HEROS_LISTS', lists);
   };
 

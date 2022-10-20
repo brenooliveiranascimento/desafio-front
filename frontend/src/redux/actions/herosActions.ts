@@ -44,7 +44,7 @@ export const requestCharters = (): any => {
   };
 };
 
-export const updateFilters = (id: number, filter: string, action: string): any => {
+export const updateLists = (id: number, filter: string, action: string): any => {
   return async (dispatch: Dispatch<any>, state: any) => {
     if (action === 'ADD') {
       await dispatch(addCharterInLists(id, filter));

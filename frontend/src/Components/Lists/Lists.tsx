@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import './Lists.css';
-import { useSelector } from 'react-redux';
-import FilterBtn from '../FilterBtn/FilterBtn';
-import NewFilterBtn from '../FilterBtn/NewFilterBtn';
+import { useDispatch, useSelector } from 'react-redux';
+import ListBtn from '../ListBtn/ListBtn';
+import NewListBtn from '../ListBtn/NewListBtn';
 import { heroModulesTypes } from '../../types/heroTypes';
+import { REMOVE_LIST } from '../../redux/redux_types';
 
 function Lists() {
   const [addNewList, setAddNewList] = useState(false);
+
   const lists: Array<string> = Object.keys(useSelector(
     ({ herosModules }:heroModulesTypes) => herosModules.lists,
   ));
+
   return (
     <section className="filter_container">
-      {lists && lists.map((filter) => <FilterBtn key={filter} filter={filter} />)}
+      {lists && lists.map((list) => <ListBtn key={list} list={list} />)}
       <section>
         <button
           onClick={() => setAddNewList(!addNewList)}
@@ -21,7 +24,7 @@ function Lists() {
         >
           <h1>{addNewList ? 'Cancelar' : 'Nova Lista'}</h1>
         </button>
-        {addNewList && <NewFilterBtn setAddNewFilter={() => setAddNewList(false)} />}
+        {addNewList && <NewListBtn setAddNewFilter={() => setAddNewList(false)} />}
       </section>
     </section>
   );

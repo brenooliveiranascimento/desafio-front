@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createFilter } from '../../redux/actions/genericHeroActions';
 import { heroModulesTypes } from '../../types/heroTypes';
 import { getLocalStorage, updateLocalStore } from '../../utils/localStorageModel';
-import FilterBtn from './FilterBtn';
+import ListBtn from './ListBtn';
 
 interface propTypes {
   setAddNewFilter: () => void
 }
 
-function NewFilterBtn({ setAddNewFilter }: propTypes) {
+function NewListBtn({ setAddNewFilter }: propTypes) {
   const [newFilterName, setNewFilterName] = useState('');
   const dispatch = useDispatch();
   const heroModules: heroModulesTypes = useSelector(
@@ -41,4 +41,4 @@ function NewFilterBtn({ setAddNewFilter }: propTypes) {
   );
 }
 
-export default NewFilterBtn;
+export default NewListBtn;

@@ -10,3 +10,4 @@ export const LOAD_END = 'LOAD_END';
 export const SET_LIST = 'SET_LIST';
 export const ADD_CHARTER_IN_LIST = 'ADD_CHARTER_IN_LIST';
 export const REMOVE_CHARTER_IN_LIST = 'REMOVE_CHARTER_IN_LIST';
+export const REMOVE_LIST = 'REMOVE_LIST';
