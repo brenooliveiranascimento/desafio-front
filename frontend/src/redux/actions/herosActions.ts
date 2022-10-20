@@ -49,11 +49,11 @@ export const updateFilters = (id: number, filter: string, action: string): any =
     if (action === 'ADD') {
       await dispatch(addCharterInLists(id, filter));
       const { lists } = state().herosModules;
-      updateLocalStore('HEROS_FILTERS', lists);
+      updateLocalStore('HEROS_LISTS', lists);
       return;
     }
     await dispatch(removeCharterInList(id, filter));
     const { lists } = state().herosModules;
-    updateLocalStore('HEROS_FILTERS', lists);
+    updateLocalStore('HEROS_LISTS', lists);
   };
 };

@@ -17,7 +17,7 @@ function NewFilterBtn({ setAddNewFilter }: propTypes) {
   );
 
   const addFilterInLocalStorage = () => {
-    updateLocalStore('HEROS_FILTERS', { ...heroModules.filters, [newFilterName]: [] });
+    updateLocalStore('HEROS_LISTS', { ...heroModules.filters, [newFilterName]: [] });
   };
 
   const newFilter = () => {
