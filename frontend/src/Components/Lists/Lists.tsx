@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import ListBtn from '../ListBtn/ListBtn';
 import NewListBtn from '../ListBtn/NewListBtn';
 import { heroModulesTypes } from '../../types/heroTypes';
-import { REMOVE_LIST } from '../../redux/redux_types';
 
 function Lists() {
   const [addNewList, setAddNewList] = useState(false);

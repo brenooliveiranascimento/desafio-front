@@ -28,14 +28,14 @@ export const requestAllCharter = (): any => {
 export const requestCharters = (): any => {
   return async (dispatch: Dispatch<any>, state: any) => {
     dispatch(updateLoad(LOAD_INIT));
-    const { currFilter, lists } = state().herosModules;
-    if (currFilter === 'All') {
+    const { currList, lists } = state().herosModules;
+    if (currList === 'All') {
       dispatch(requestAllCharter());
       dispatch(setChartes([], FETCH_HEROS));
       return;
     }
-    if (currFilter === '') return;
-    const chaters = await Promise.all(lists[currFilter].map(async (currId: any) => {
+    if (currList === '') return;
+    const chaters = await Promise.all(lists[currList].map(async (currId: any) => {
       const fetchCharter = (await herosApi.get(`${currId}`)).data;
       return fetchCharter;
     }));
@@ -44,15 +44,15 @@ export const requestCharters = (): any => {
   };
 };
 
-export const updateLists = (id: number, filter: string, action: string): any => {
+export const updateLists = (id: number, list: string, action: string): any => {
   return async (dispatch: Dispatch<any>, state: any) => {
     if (action === 'ADD') {
-      await dispatch(addCharterInLists(id, filter));
+      await dispatch(addCharterInLists(id, list));
       const { lists } = state().herosModules;
       updateLocalStore('HEROS_LISTS', lists);
       return;
     }
-    await dispatch(removeCharterInList(id, filter));
+    await dispatch(removeCharterInList(id, list));
     const { lists } = state().herosModules;
     updateLocalStore('HEROS_LISTS', lists);
   };

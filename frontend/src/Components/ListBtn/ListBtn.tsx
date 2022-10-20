@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FiTrash2 } from 'react-icons/fi';
-import { selectCurrFilter, genericUpdateLists } from '../../redux/actions/genericHeroActions';
-import { DELETE_LIST } from '../../redux/redux_types';
+import { selectCurrList, genericUpdateLists } from '../../redux/actions/genericHeroActions';
+import { DELETE_LIST, REMOVE_LIST } from '../../redux/redux_types';
 import { heroModulesTypes } from '../../types/heroTypes';
 import './listBtn.css';
+import { updateLocalStore } from '../../utils/localStorageModel';
 
 interface listType {
   list: string;
@@ -12,18 +13,24 @@ interface listType {
 
 function ListBtn({ list }: listType) {
   const dispatch = useDispatch();
-  const currFilter: string = useSelector(
-    ({ herosModules }:heroModulesTypes) => herosModules.currFilter,
+  const currList: string = useSelector(
+    ({ herosModules }:heroModulesTypes) => herosModules.currList,
+  );
+
+  const allLists: any = useSelector(
+    ({ herosModules }:heroModulesTypes) => herosModules.lists,
   );
 
   const selectFilter = (filterSelected: string) => {
-    if (filterSelected === currFilter) return dispatch(selectCurrFilter(''));
-    dispatch(selectCurrFilter(filterSelected));
+    if (filterSelected === currList) return dispatch(selectCurrList(''));
+    dispatch(selectCurrList(filterSelected));
   };
 
   const deleteList = () => {
-    alert(list);
-    dispatch(genericUpdateLists(DELETE_LIST, list));
+    const newList = { ...allLists };
+    delete newList[list];
+    updateLocalStore('HEROS_LISTS', newList);
+    dispatch(genericUpdateLists(REMOVE_LIST, newList));
   };
 
   return (
@@ -33,7 +40,7 @@ function ListBtn({ list }: listType) {
         onClick={() => selectFilter(list)}
         className="filter_button"
         type="button"
-        style={{ backgroundColor: currFilter === list ? '#371454' : 'rgba(0,0,0)' }}
+        style={{ backgroundColor: currList === list ? '#371454' : 'rgba(0,0,0)' }}
       >
         <h1>{list}</h1>
       </button>

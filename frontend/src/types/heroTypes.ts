@@ -55,7 +55,7 @@ export interface heroModulesTypes {
   [key: string]: any;
   charter: Array<heroTypes>,
   lists: any,
-  currFilter: string,
+  currList: string,
   countShow: number,
   load: boolean,
 }

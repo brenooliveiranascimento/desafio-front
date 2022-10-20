@@ -2,7 +2,7 @@ import {
   ADD_CHARTER_IN_LIST, CREATE_LIST, REMOVE_CHARTER_IN_LIST, SELECT_LIST, SET_LIST,
 } from '../redux_types';
 
-export const selectCurrFilter = (filter: string) => ({
+export const selectCurrList = (filter: string) => ({
   type: SELECT_LIST,
   payload: filter,
 });
@@ -17,7 +17,7 @@ export const setLists = (filters: any) => ({
   payload: filters,
 });
 
-export const genericUpdateLists = (type: string, id: string) => ({
+export const genericUpdateLists = (type: string, id: any) => ({
   type,
   payload: id,
 });
