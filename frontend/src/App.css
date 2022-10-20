@@ -13,6 +13,14 @@
   }
 }
 
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(80%);
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

@@ -9,8 +9,6 @@ import SearchByName from '../SearchByName/SearchByName';
 
 function Lists() {
   const [addNewList, setAddNewList] = useState(false);
-  const [charterName, setCharterName] = useState('');
-  const dispatch = useDispatch();
 
   const lists: Array<string> = Object.keys(useSelector(
     ({ herosModules }:heroModulesTypes) => herosModules.lists,
@@ -20,9 +18,7 @@ function Lists() {
     <section className="filter_container">
       <section style={{ display: 'flex', flexWrap: 'wrap' }}>
         {lists && lists.map((list) => <ListBtn key={list} list={list} />)}
-
       </section>
-
       <SearchByName />
       <section>
         <button

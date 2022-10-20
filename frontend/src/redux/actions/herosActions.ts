@@ -5,7 +5,7 @@ import {
   ADD_HEROS, CREATE_LIST, FETCH_HEROS, LOAD_END, LOAD_INIT, SELECT_LIST,
 } from '../redux_types';
 import {
-  addCharterInLists, removeCharterInList, setChartes, updateLoad,
+  addCharterInLists, removeCharterInList, selectCurrList, setChartes, updateLoad,
 } from './genericHeroActions';
 
 export const requestAllCharter = (): any => {
@@ -63,6 +63,7 @@ export const searchCharterByName = (name:string): any => {
     dispatch(updateLoad(LOAD_INIT));
     const { results }: any = await (await herosApi.get(`search/${name}`)).data;
     if (!results) return alert('Personagem não encontrado!');
+    dispatch(selectCurrList(''));
     dispatch(updateLoad(LOAD_END));
     dispatch(setChartes(results, FETCH_HEROS));
   };
