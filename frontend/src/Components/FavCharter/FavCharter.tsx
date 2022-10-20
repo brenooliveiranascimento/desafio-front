@@ -16,10 +16,10 @@ function FavCharter({ currCharter }: currCharterTypes) {
   const heroStore: heroModulesTypes = useSelector(
     ({ herosModules }: heroModulesTypes) => herosModules,
   );
-  const { filters }: any = heroStore;
+  const { lists }: any = heroStore;
 
   const verifyCharterInCurrFilter = (currFilter: any) => {
-    const checkCharter: any = filters[currFilter]
+    const checkCharter: any = lists[currFilter]
       .some((id: string) => Number(id) === Number(currCharter.id));
     return checkCharter;
   };
@@ -27,11 +27,11 @@ function FavCharter({ currCharter }: currCharterTypes) {
   const addCharter = (filterSelected: string) => {
     if (verifyCharterInCurrFilter(filterSelected)) {
       dispatch(updateFilters(Number(currCharter.id), filterSelected, 'REMOVE'));
-      updateLocalStore('HEROS_FILTERS', filters);
+      updateLocalStore('HEROS_FILTERS', lists);
       return;
     }
     dispatch(updateFilters(Number(currCharter.id), filterSelected, 'ADD'));
-    updateLocalStore('HEROS_FILTERS', filters);
+    updateLocalStore('HEROS_FILTERS', lists);
   };
 
   return (
@@ -43,7 +43,7 @@ function FavCharter({ currCharter }: currCharterTypes) {
         className="favList_container"
       >
         <button className="close_btn" onClick={() => setShowFavList(!showFavList)} type="button">Fechar</button>
-        {Object.keys(filters).map((currFilter: string) => (
+        {Object.keys(lists).map((currFilter: string) => (
           <button
             onClick={() => addCharter(currFilter)}
             type="button"
