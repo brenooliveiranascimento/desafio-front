@@ -13,7 +13,7 @@ export default function AddNewList() {
       >
         <h1>{addNewList ? 'Cancelar' : 'Nova Lista'}</h1>
       </button>
-      {addNewList && <NewListBtn setAddNewFilter={() => setAddNewList(false)} />}
+      {addNewList && <NewListBtn setAddNewList={() => setAddNewList(false)} />}
     </section>
   );
 }

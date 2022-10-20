@@ -4,38 +4,37 @@ import { genericUpdateLists } from '../../../redux/actions/genericHeroActions';
 import { CREATE_LIST } from '../../../redux/redux_types';
 import { heroModulesTypes } from '../../../types/heroTypes';
 import { updateLocalStore } from '../../../utils/localStorageModel';
-import ListBtn from './ListBtn';
 
 interface propTypes {
-  setAddNewFilter: () => void
+  setAddNewList: () => void
 }
 
-function NewListBtn({ setAddNewFilter }: propTypes) {
-  const [newFilterName, setNewFilterName] = useState('');
+function NewListBtn({ setAddNewList }: propTypes) {
+  const [newListName, setNewListName] = useState('');
   const dispatch = useDispatch();
   const heroModules: heroModulesTypes = useSelector(
     ({ herosModules }:heroModulesTypes) => herosModules,
   );
 
-  const addFilterInLocalStorage = () => {
-    updateLocalStore('HEROS_LISTS', { ...heroModules.filters, [newFilterName]: [] });
+  const addListInLocalStorage = () => {
+    updateLocalStore('HEROS_LISTS', { ...heroModules.filters, [newListName]: [] });
   };
 
-  const newFilter = () => {
-    if (!newFilterName) return alert('Por favor Digite alguma coisa');
-    addFilterInLocalStorage();
-    dispatch(genericUpdateLists(CREATE_LIST, newFilterName));
-    setNewFilterName('');
-    setAddNewFilter();
+  const newList = () => {
+    if (!newListName) return alert('Por favor Digite alguma coisa');
+    addListInLocalStorage();
+    dispatch(genericUpdateLists(CREATE_LIST, newListName));
+    setNewListName('');
+    setAddNewList();
   };
 
   return (
     <section>
       <input
-        value={newFilterName}
-        onChange={({ target }) => setNewFilterName(target.value)}
+        value={newListName}
+        onChange={({ target }) => setNewListName(target.value)}
       />
-      <button onClick={newFilter} type="button">
+      <button onClick={newList} type="button">
         Adicionar
       </button>
     </section>

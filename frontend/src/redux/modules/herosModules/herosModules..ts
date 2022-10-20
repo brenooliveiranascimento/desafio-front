@@ -32,7 +32,7 @@ const ACTION_INITIAL_STATE: heroActionTypes = {
   type: '',
   payload: {},
   id: 0,
-  filter: '',
+  list: '',
 };
 
 function herosModules(state = STATE_INITIAL_VALUE, action = ACTION_INITIAL_STATE) {
@@ -61,7 +61,7 @@ function herosModules(state = STATE_INITIAL_VALUE, action = ACTION_INITIAL_STATE
         ...state,
         lists: {
           ...state.lists,
-          [action.filter]: [...state.lists[action.filter], action.id],
+          [action.list]: [...state.lists[action.list], action.id],
         },
       };
     case REMOVE_CHARTER_IN_LIST:
@@ -69,7 +69,7 @@ function herosModules(state = STATE_INITIAL_VALUE, action = ACTION_INITIAL_STATE
         ...state,
         lists: {
           ...state.lists,
-          [action.filter]: state.lists[action.filter]
+          [action.list]: state.lists[action.list]
             .filter((currId: string) => Number(currId) !== action.id),
         },
       };
