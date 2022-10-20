@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateFilters } from '../../redux/actions/herosActions';
+import { updateLists } from '../../redux/actions/herosActions';
 import { heroModulesTypes, heroTypes } from '../../types/heroTypes';
 import { updateLocalStore } from '../../utils/localStorageModel';
-import './favStyles.css';
+import './listStyles.css';
 
 interface currCharterTypes {
   currCharter: heroTypes
 }
 
-function FavCharter({ currCharter }: currCharterTypes) {
+function ListCharter({ currCharter }: currCharterTypes) {
   const dispatch = useDispatch();
   const [showFavList, setShowFavList] = useState(false);
 
@@ -26,12 +26,12 @@ function FavCharter({ currCharter }: currCharterTypes) {
 
   const addCharter = (filterSelected: string) => {
     if (verifyCharterInCurrFilter(filterSelected)) {
-      dispatch(updateFilters(Number(currCharter.id), filterSelected, 'REMOVE'));
-      updateLocalStore('HEROS_FILTERS', lists);
+      dispatch(updateLists(Number(currCharter.id), filterSelected, 'REMOVE'));
+      updateLocalStore('HEROS_LISTS', lists);
       return;
     }
-    dispatch(updateFilters(Number(currCharter.id), filterSelected, 'ADD'));
-    updateLocalStore('HEROS_FILTERS', lists);
+    dispatch(updateLists(Number(currCharter.id), filterSelected, 'ADD'));
+    updateLocalStore('HEROS_LISTS', lists);
   };
 
   return (
@@ -43,17 +43,23 @@ function FavCharter({ currCharter }: currCharterTypes) {
         className="favList_container"
       >
         <button className="close_btn" onClick={() => setShowFavList(!showFavList)} type="button">Fechar</button>
-        {Object.keys(lists).map((currFilter: string) => (
-          <button
-            onClick={() => addCharter(currFilter)}
-            type="button"
-            key={currFilter}
-            className="filter_item_container"
-          >
-            <span>{currFilter}</span>
-            <span>{verifyCharterInCurrFilter(currFilter) ? 'Remover' : 'Adicionar'}</span>
-          </button>
-        ))}
+        {Object.keys(lists).map((currList: string) => {
+          if (currList === 'All') return;
+          return (
+            <button
+              style={{
+                backgroundColor: verifyCharterInCurrFilter(currList) ? 'grey' : 'black',
+              }}
+              onClick={() => addCharter(currList)}
+              type="button"
+              key={currList}
+              className="filter_item_container"
+            >
+              <span>{currList}</span>
+              <span>{verifyCharterInCurrFilter(currList) ? 'Remover' : 'Adicionar'}</span>
+            </button>
+          );
+        })}
       </section>
       <section>
         <button className="show_fav_btn" onClick={() => setShowFavList(!showFavList)} type="button">Adicionar a alguma lista</button>
@@ -62,4 +68,4 @@ function FavCharter({ currCharter }: currCharterTypes) {
   );
 }
 
-export default FavCharter;
+export default ListCharter;

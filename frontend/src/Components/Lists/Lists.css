@@ -1,0 +1,47 @@
+.filter_container {
+  display: flex;
+  width: 1240px;
+  height: auto;
+  padding: 5rem 2rem;
+  background-color: #272A2F;
+  color: white;
+  margin-top: -5rem;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 5rem;
+}
+
+.filter_button {
+  background-color: none;
+  border: none;
+  color: white;
+  margin: 1rem;
+  width: 10rem;
+  background-color: #5d3979;
+  cursor: pointer;
+}
+
+.search_by_name_area {
+  display: flex;
+  flex-direction: column;
+}
+
+.search_by_name_area input {
+  width: 230px;
+  margin: 1rem 0rem;
+}
+
+.filter_btn_area {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1540px) {
+  .filter_container {
+    width: 75%;
+  }
+}

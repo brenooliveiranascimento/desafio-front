@@ -10,6 +10,7 @@ import {
   LOAD_INIT,
   REMOVE_CHARTER_IN_LIST,
   REMOVE_HERO_IN_LIST,
+  REMOVE_LIST,
   SELECT_LIST,
   SET_LIST,
 } from '../../redux_types';
@@ -22,7 +23,7 @@ const STATE_INITIAL_VALUE: heroModulesTypes = {
     villains: [10, 11, 12],
     All: [],
   },
-  currFilter: 'All',
+  currList: 'All',
   countShow: 1,
   load: false,
 };
@@ -50,7 +51,7 @@ function herosModules(state = STATE_INITIAL_VALUE, action = ACTION_INITIAL_STATE
         countShow: state.countShow + 30,
       };
     case SELECT_LIST:
-      return { ...state, currFilter: action.payload, countShow: 1 };
+      return { ...state, currList: action.payload, countShow: 1 };
     case CREATE_LIST:
       return { ...state, lists: { ...state.lists, [action.payload]: [] } };
     case SET_LIST:
@@ -72,8 +73,8 @@ function herosModules(state = STATE_INITIAL_VALUE, action = ACTION_INITIAL_STATE
             .filter((currId: string) => Number(currId) !== action.id),
         },
       };
-    case DELETE_LIST:
-      return state;
+    case REMOVE_LIST:
+      return { ...state, lists: action.payload };
     default:
       return state;
   }

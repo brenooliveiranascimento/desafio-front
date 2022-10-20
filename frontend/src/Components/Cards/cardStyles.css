@@ -11,6 +11,8 @@
 .card_container img {
   object-fit: cover;
   height: 300px;
+  justify-self: flex-start;
+  align-self: flex-start;
   width: 300px;
 }
 
