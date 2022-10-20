@@ -54,7 +54,9 @@ export interface heroTypes {
 export interface heroModulesTypes {
   [key: string]: any;
   charter: Array<heroTypes>,
-  lists: any,
+  lists: {
+    [key: string]: Array<any>
+  },
   currList: string,
   countShow: number,
   load: boolean,
@@ -64,5 +66,5 @@ export interface heroActionTypes {
   type: string,
   payload: any
   id?: number
-  filter: string
+  list: string
 }

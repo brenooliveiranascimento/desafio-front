@@ -27,7 +27,14 @@ function CardsArea() {
 
   return (
     <section className="cardsArea_container">
-      {
+      <section style={{
+        display: 'flex',
+        maxWidth: '1330px',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+      >
+        {
         load && currList !== 'All' ? 'Loading' : (
           <section className="card_area">
             { charter.length ? charter.map((currCharter: heroTypes) => (
@@ -37,6 +44,7 @@ function CardsArea() {
           </section>
         )
       }
+      </section>
       {currList === 'All' && (
       <button onClick={loadMore} type="button">
         {load ? 'Loading...' : 'Load More'}

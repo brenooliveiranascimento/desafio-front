@@ -3,14 +3,26 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  max-width: 1550px;
 }
 
 .card_area {
   display: flex;
-  max-width: 1550px;
   align-self: center;
   width: auto;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1330px) {
+  .card_area {
+    width: 77%;
+  }
+}
+
+@media screen and (max-width: 1294px) {
+  .card_area {
+    justify-content: center;
+  }
 }

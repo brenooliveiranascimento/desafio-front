@@ -12,8 +12,8 @@ export const updateLoad = (type: string) => ({
   type,
 });
 
-export const charterControl = (type: string, id: number, filter: string) => ({
+export const charterControl = (type: string, id: number, list: string) => ({
   type,
   id,
-  filter,
+  list,
 });
