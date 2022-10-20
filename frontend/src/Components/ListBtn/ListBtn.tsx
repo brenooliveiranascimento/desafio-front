@@ -44,11 +44,14 @@ function ListBtn({ list }: listType) {
       >
         <h1>{list}</h1>
       </button>
-      {list !== 'All' && (
-        <button onClick={deleteList} className="delete_list_btn" type="button">
-          <FiTrash2 />
-        </button>
-      )}
+      <button
+        disabled={list === 'All'}
+        onClick={deleteList}
+        className="delete_list_btn"
+        type="button"
+      >
+        <FiTrash2 />
+      </button>
     </section>
   );
 }
