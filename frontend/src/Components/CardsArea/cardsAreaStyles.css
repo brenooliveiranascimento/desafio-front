@@ -6,8 +6,10 @@
 }
 
 .card_area {
-  max-width: 1540px;
   display: flex;
+  max-width: 1550px;
+  align-self: center;
+  width: auto;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;

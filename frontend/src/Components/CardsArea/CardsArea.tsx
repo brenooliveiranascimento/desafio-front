@@ -28,7 +28,7 @@ function CardsArea() {
   return (
     <section className="cardsArea_container">
       {
-        load ? 'Loading' : (
+        load && currList !== 'All' ? 'Loading' : (
           <section className="card_area">
             { charter.length ? charter.map((currCharter: heroTypes) => (
               <Cards key={currCharter.id} currCharter={currCharter} />
