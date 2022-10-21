@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import NewListBtn from './ListBtn/NewListBtn';
+import './newList.css';
 
 export default function AddNewList() {
   const [addNewList, setAddNewList] = useState(false);
 
   return (
-    <section>
+    <section className="newList_container">
       <button
         onClick={() => setAddNewList(!addNewList)}
         className="filter_button"
