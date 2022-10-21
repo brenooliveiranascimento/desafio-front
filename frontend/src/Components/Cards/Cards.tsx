@@ -1,19 +1,33 @@
 import React from 'react';
-import { heroTypes } from '../../types/heroTypes';
-import Stats from './Stats';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { heroDetailsStateType, heroTypes } from '../../types/heroTypes';
+import Stats from './CardsSubComponent/Stats';
 import './cardStyles.css';
 import ListCharter from '../ListCharter/ListCharter';
-import CardHeader from './CardHeader';
+import CardHeader from './CardsSubComponent/CardHeader';
+import { handleCharterDetailControl } from '../../redux/actions/genericHeroActions';
 
 interface currCharterTypes {
   currCharter: heroTypes
 }
 
+interface detailStoreType {
+  heroDetail: heroDetailsStateType
+}
+
 function Cards({ currCharter }: currCharterTypes) {
+  const dispatch = useDispatch();
+  const { showDetails } = useSelector(({ heroDetail }: detailStoreType) => heroDetail);
+
+  const handleDetails = () => {
+    dispatch(handleCharterDetailControl(currCharter));
+  };
+
   return (
     <section className="card_container">
-      <button onClick={() => alert('ndwiao')} className="details_btn" type="button">
-        <CardHeader currChar={currCharter} />
+      <button onClick={handleDetails} className="details_btn" type="button">
+        {!showDetails && <CardHeader currChar={currCharter} />}
         <h1 className="details_message">Tap for Detaisl</h1>
         <img src={currCharter.image?.url} alt={currCharter.name} />
       </button>

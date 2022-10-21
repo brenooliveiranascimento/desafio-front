@@ -40,7 +40,7 @@ export interface workTypes {
 }
 
 export interface heroTypes {
-  id: string,
+  id: string | number,
   image: imageType,
   name: string,
   powerstats: powerstatsTypes,
@@ -67,4 +67,9 @@ export interface heroActionTypes {
   payload: any
   id?: number
   list: string
+}
+
+export interface heroDetailsStateType {
+  charter: heroTypes | any,
+  showDetails: boolean
 }

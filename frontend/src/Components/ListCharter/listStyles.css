@@ -15,6 +15,7 @@
   background-color: black;
   transition: all 0.5s;
   position: absolute;
+  z-index: 10;
   height: 9rem;
   overflow-x: hidden;
   position: absolute;
@@ -40,7 +41,8 @@
 
 .show_fav_btn {
   border: none;
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0,0,0,0.6);
+  font-weight: bold;
   margin-top: -0.9rem;
   width: 300px;
   color: white;
