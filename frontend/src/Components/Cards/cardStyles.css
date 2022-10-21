@@ -113,7 +113,11 @@
 }
 
 .charter_name p {
-  padding-left: 1rem;
+  margin-left: -1.6rem;
+}
+
+.charter_name span {
+  margin-left: 1rem;
 }
 
 .charter_name button {
