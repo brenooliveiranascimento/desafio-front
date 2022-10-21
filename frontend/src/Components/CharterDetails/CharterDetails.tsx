@@ -24,10 +24,10 @@ function CharterDetails() {
     <main className="charterDetails_container">
 
       <section className="card_detail">
-        <section className="side_image">
+        <aside className="side_image">
           <Cards currCharter={charter} />
-        </section>
-        <section className="side_inf">
+        </aside>
+        <aside className="side_inf">
           <button onClick={closeDetails} className="closeBtn" type="button">
             x
           </button>
@@ -38,7 +38,7 @@ function CharterDetails() {
           {Object.keys(connections)
             .map((connKey: string) => (
               <Connections connKey={connKey} connections={connections} />))}
-        </section>
+        </aside>
       </section>
     </main>
   );
