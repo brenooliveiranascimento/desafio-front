@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { heroTypes } from '../../types/heroTypes';
+import { useDispatch, useSelector } from 'react-redux';
+import { heroDetailsStateType, heroTypes } from '../../types/heroTypes';
 import Stats from './Stats';
 import './cardStyles.css';
 import ListCharter from '../ListCharter/ListCharter';
@@ -12,8 +12,13 @@ interface currCharterTypes {
   currCharter: heroTypes
 }
 
+interface detailStoreType {
+  heroDetail: heroDetailsStateType
+}
+
 function Cards({ currCharter }: currCharterTypes) {
   const dispatch = useDispatch();
+  const { showDetails } = useSelector(({ heroDetail }: detailStoreType) => heroDetail);
 
   const handleDetails = () => {
     dispatch(handleCharterDetailControl(currCharter));
@@ -22,7 +27,7 @@ function Cards({ currCharter }: currCharterTypes) {
   return (
     <section className="card_container">
       <button onClick={handleDetails} className="details_btn" type="button">
-        <CardHeader currChar={currCharter} />
+        {!showDetails && <CardHeader currChar={currCharter} />}
         <h1 className="details_message">Tap for Detaisl</h1>
         <img src={currCharter.image?.url} alt={currCharter.name} />
       </button>
