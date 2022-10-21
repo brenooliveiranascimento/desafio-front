@@ -12,15 +12,17 @@
 .card_container img {
   object-fit: cover;
   height: 340px;
-  justify-self: flex-start;
-  align-self: flex-start;
+  justify-self: center;
+  align-self: center;
   width: 300px;
+  z-index: 0;
 }
 
 .inf_area {
   padding: 1rem;
   background-color: #414244;
   width: 270px;
+  z-index: 10;
   border: none;
   height: auto;
   display: flex;
@@ -28,14 +30,30 @@
   color: white;
 }
 
+.details_message {
+  position: absolute;
+  z-index: 99;
+  margin-top: 20%;
+  font-size: 2rem;
+  display: none;
+}
+
+.details_btn:hover::after .details_message {
+  display: flex;
+}
+
 .details_btn {
   display: flex;
-  z-index: 12;
+  z-index: 10;
   flex-direction: column;
   align-items: center;
   border: none;
   justify-content: center;
   width: 100%;
+}
+
+.details_btn:hover {
+  filter: brightness(80%);
 }
 
 .inf_area span {
@@ -85,13 +103,21 @@
 .charter_name {
   font-size: 1.4rem;
   position: absolute;
+  z-index: 99;
   width: 300px;
   height: 3rem;
   font-weight: bold;
   display: flex;
+  margin-top: -18rem;
+  color: white;
+  padding-top: 0.4rem;
   justify-content: space-between;
   background-color: rgba(0,0,0,0.7);
   align-items: center;
+}
+
+.charter_name p {
+  padding-left: 1rem;
 }
 
 .charter_name button {

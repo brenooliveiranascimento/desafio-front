@@ -11,9 +11,9 @@ function CardHeader({ currChar }: currCharterTypes) {
         {currChar.name}
         <p>{currChar.biography.publisher}</p>
       </span>
-      <button type="button">
+      {/* <button type="button">
         Details
-      </button>
+      </button> */}
     </section>
   );
 }
