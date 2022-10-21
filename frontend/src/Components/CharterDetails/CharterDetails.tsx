@@ -16,11 +16,15 @@ function CharterDetails() {
   console.log(charter);
   return (
     <main className="charterDetails_container">
+
       <section className="card_detail">
         <section className="side_image">
           <Cards currCharter={charter} />
         </section>
         <section className="side_inf">
+          <button className="closeBtn" type="button">
+            x
+          </button>
           <h1>{charter.name}</h1>
           {Object.keys(biography)
             .map((bioKey: string) => (<Biography bioKey={bioKey} biography={biography} />))}

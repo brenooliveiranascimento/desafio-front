@@ -44,6 +44,11 @@
   font-size: 2rem;
 }
 
+.closeBtn {
+  position: absolute;
+  margin-left: 25%;
+}
+
 .side_inf span {
   margin-top: 0.5rem;
   line-height: 1.5rem;
