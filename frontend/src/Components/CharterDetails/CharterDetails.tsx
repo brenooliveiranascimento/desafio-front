@@ -1,5 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { handleCharterDetailControl } from '../../redux/actions/genericHeroActions';
 import { heroDetailsStateType, heroTypes } from '../../types/heroTypes';
 import Cards from '../Cards/Cards';
 import Biography from './Biography';
@@ -11,9 +12,14 @@ interface detailStoreType {
 }
 
 function CharterDetails() {
+  const dispatch = useDispatch();
   const { charter } = useSelector(({ heroDetail }: detailStoreType) => heroDetail);
   const { biography, connections } = charter;
-  console.log(charter);
+
+  const closeDetails = () => {
+    dispatch(handleCharterDetailControl(null));
+  };
+
   return (
     <main className="charterDetails_container">
 
@@ -22,7 +28,7 @@ function CharterDetails() {
           <Cards currCharter={charter} />
         </section>
         <section className="side_inf">
-          <button className="closeBtn" type="button">
+          <button onClick={closeDetails} className="closeBtn" type="button">
             x
           </button>
           <h1>{charter.name}</h1>

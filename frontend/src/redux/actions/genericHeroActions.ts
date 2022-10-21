@@ -21,7 +21,7 @@ export const charterControl = (type: string, id: number, list: string) => ({
   list,
 });
 
-export const handleCharterDetailControl = (charter: heroTypes) => ({
+export const handleCharterDetailControl = (charter: heroTypes | null) => ({
   type: HANDLE_DETAIL,
   payload: charter,
 });

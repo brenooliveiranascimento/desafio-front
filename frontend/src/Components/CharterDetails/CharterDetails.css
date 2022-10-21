@@ -45,8 +45,16 @@
 }
 
 .closeBtn {
-  position: absolute;
-  margin-left: 25%;
+  align-self: flex-end;
+  padding: 1rem;
+  border: none;
+  background-color: #464657;
+  color: white;
+  transition: all 0.5s;
+}
+
+.closeBtn:hover {
+  filter: brightness(80%);
 }
 
 .side_inf span {
