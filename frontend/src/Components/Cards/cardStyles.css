@@ -3,6 +3,7 @@
   height: auto;
   display: flex;
   flex-direction: column;
+  align-self: center;
   background-color: #414244;
   margin: 1rem 1rem 3rem;
   z-index: 99;

@@ -27,12 +27,8 @@ function CardsArea() {
 
   return (
     <section className="cardsArea_container">
-      <section style={{
-        display: 'flex',
-        maxWidth: '1330px',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
+      <section
+        style={{ display: 'flex', justifyContent: 'center' }}
       >
         {
         load && currList !== 'All' ? 'Loading' : (
