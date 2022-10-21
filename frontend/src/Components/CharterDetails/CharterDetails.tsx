@@ -33,11 +33,12 @@ function CharterDetails() {
           </button>
           <h1>{charter.name}</h1>
           {Object.keys(biography)
-            .map((bioKey: string) => (<Biography bioKey={bioKey} biography={biography} />))}
+            .map((bioKey: string) => (
+              <Biography key={bioKey} bioKey={bioKey} biography={biography} />))}
 
           {Object.keys(connections)
             .map((connKey: string) => (
-              <Connections connKey={connKey} connections={connections} />))}
+              <Connections key={connKey} connKey={connKey} connections={connections} />))}
         </aside>
       </section>
     </main>

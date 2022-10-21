@@ -13,11 +13,11 @@ function Lists() {
 
   return (
     <section className="filter_container">
+      <SearchByName />
       <section className="filter_btn_area">
         {lists && lists.map((list) => <ListBtn key={list} list={list} />)}
       </section>
       <AddNewList />
-      <SearchByName />
     </section>
   );
 }
