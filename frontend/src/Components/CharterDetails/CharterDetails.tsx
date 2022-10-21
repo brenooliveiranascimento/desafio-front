@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { handleCharterDetailControl } from '../../redux/actions/genericHeroActions';
 import { heroDetailsStateType, heroTypes } from '../../types/heroTypes';
 import Cards from '../Cards/Cards';
-import Biography from './Biography';
+import Biography from './CharterDetailSubComponents/Biography';
 import './CharterDetails.css';
-import Connections from './connections';
+import Connections from './CharterDetailSubComponents/connections';
 
 interface detailStoreType {
   heroDetail: heroDetailsStateType

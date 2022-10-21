@@ -1,5 +1,5 @@
 import React from 'react';
-import { heroTypes } from '../../types/heroTypes';
+import { heroTypes } from '../../../types/heroTypes';
 
 interface currCharterTypes {
   currChar: heroTypes

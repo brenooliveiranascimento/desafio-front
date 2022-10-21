@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { heroDetailsStateType, heroTypes } from '../../types/heroTypes';
-import Stats from './Stats';
+import Stats from './CardsSubComponent/Stats';
 import './cardStyles.css';
 import ListCharter from '../ListCharter/ListCharter';
-import CardHeader from './CardHeader';
+import CardHeader from './CardsSubComponent/CardHeader';
 import { handleCharterDetailControl } from '../../redux/actions/genericHeroActions';
 
 interface currCharterTypes {
