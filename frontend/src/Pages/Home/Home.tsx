@@ -7,6 +7,7 @@ import { genericUpdateLists } from '../../redux/actions/genericHeroActions';
 import { getLocalStorage } from '../../utils/localStorageModel';
 import './home.css';
 import { SET_LIST } from '../../redux/redux_types';
+import CharterDetails from '../../Components/CharterDetails/CharterDetails';
 
 function Home() {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ function Home() {
   }, []);
   return (
     <section className="home_cintainer">
+      <CharterDetails />
       <Header />
       <Lists />
       <CardsArea />

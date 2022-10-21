@@ -5,14 +5,13 @@ import Stats from './Stats';
 import './cardStyles.css';
 import ListCharter from '../ListCharter/ListCharter';
 import CardHeader from './CardHeader';
+import CharterDetails from '../CharterDetails/CharterDetails';
 
 interface currCharterTypes {
   currCharter: heroTypes
 }
 
 function Cards({ currCharter }: currCharterTypes) {
-  const openDetails = () => {
-  };
   return (
     <section className="card_container">
       <Link to={`${currCharter.id}`} className="details_btn" type="button">

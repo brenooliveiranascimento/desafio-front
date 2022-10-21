@@ -68,3 +68,8 @@ export interface heroActionTypes {
   id?: number
   list: string
 }
+
+export interface heroDetailsStateType {
+  charter: Object,
+  showDetails: boolean
+}
