@@ -1,4 +1,3 @@
-import { heroActionTypes, heroModulesTypes } from '../../../types/heroTypes';
 import {
   ADD_CHARTER_IN_LIST,
   ADD_HEROS,
