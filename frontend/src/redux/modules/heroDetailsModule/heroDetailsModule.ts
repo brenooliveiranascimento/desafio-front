@@ -1,17 +1,11 @@
 import { heroActionTypes, heroDetailsStateType, heroModulesTypes } from '../../../types/heroTypes';
 import { HANDLE_DETAIL } from '../../redux_types';
+import { DETAILS_ACTION_INITIAL_STATE, DETAILS_STATE_INITIAL_VALUE } from '../../storeDefaulstValues/herosDefaultValues';
 
-const STATE_INITIAL_VALUE: heroDetailsStateType = {
-  charter: null,
-  showDetails: false,
-};
-
-const ACTION_INITIAL_STATE = {
-  type: '',
-  payload: {},
-};
-
-function heroDetailsModule(state = STATE_INITIAL_VALUE, aciton = ACTION_INITIAL_STATE) {
+function heroDetailsModule(
+  state = DETAILS_STATE_INITIAL_VALUE,
+  aciton = DETAILS_ACTION_INITIAL_STATE,
+) {
   switch (aciton.type) {
     case HANDLE_DETAIL:
       return {
