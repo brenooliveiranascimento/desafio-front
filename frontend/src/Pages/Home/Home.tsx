@@ -8,10 +8,16 @@ import { getLocalStorage } from '../../utils/localStorageModel';
 import './home.css';
 import { SET_LIST } from '../../redux/redux_types';
 import CharterDetails from '../../Components/CharterDetails/CharterDetails';
+import { heroDetailsStateType } from '../../types/heroTypes';
+
+interface storeType {
+  heroDetail: heroDetailsStateType
+}
 
 function Home() {
   const dispatch = useDispatch();
 
+  const showDetail = useSelector(({ heroDetail }:storeType) => heroDetail.showDetails);
   useEffect(() => {
     const allListInStore = getLocalStorage('HEROS_LISTS');
     if (Object.keys(allListInStore).length) {
@@ -20,7 +26,7 @@ function Home() {
   }, []);
   return (
     <section className="home_cintainer">
-      <CharterDetails />
+      {showDetail && <CharterDetails />}
       <Header />
       <Lists />
       <CardsArea />

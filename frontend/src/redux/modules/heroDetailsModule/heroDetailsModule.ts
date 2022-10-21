@@ -23,3 +23,5 @@ function heroDetailsModule(state = STATE_INITIAL_VALUE, aciton = ACTION_INITIAL_
       return state;
   }
 }
+
+export default heroDetailsModule;
