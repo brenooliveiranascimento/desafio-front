@@ -113,10 +113,11 @@
 }
 
 .charter_name p {
-  margin-left: -1.6rem;
+  margin-left: 0rem;
 }
 
 .charter_name span {
+  text-align: start;
   margin-left: 1rem;
 }
 

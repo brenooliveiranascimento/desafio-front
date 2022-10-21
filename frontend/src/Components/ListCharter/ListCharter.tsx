@@ -37,10 +37,7 @@ function ListCharter({ currCharter }: currCharterTypes) {
   return (
     <section className="fav_container">
       <section
-        style={{
-          zIndex: 99,
-          marginTop: !showFavList ? '16.1rem' : '-2rem',
-        }}
+        style={{ marginTop: !showFavList ? '16.1rem' : '-2rem' }}
         className="favList_container"
       >
         <button className="close_btn" onClick={() => setShowFavList(!showFavList)} type="button">Fechar</button>
@@ -62,7 +59,7 @@ function ListCharter({ currCharter }: currCharterTypes) {
           );
         })}
       </section>
-      <section style={{ zIndex: 0, marginTop: '5rem' }}>
+      <section style={{ zIndex: 1, marginTop: '5rem' }}>
         <button className="show_fav_btn" onClick={() => setShowFavList(!showFavList)} type="button">Adicionar a alguma lista</button>
       </section>
     </section>
