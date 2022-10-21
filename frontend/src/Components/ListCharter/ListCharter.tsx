@@ -38,7 +38,8 @@ function ListCharter({ currCharter }: currCharterTypes) {
     <section className="fav_container">
       <section
         style={{
-          marginTop: !showFavList ? '11rem' : '-7rem',
+          zIndex: 99,
+          marginTop: !showFavList ? '16.1rem' : '-2rem',
         }}
         className="favList_container"
       >
@@ -61,7 +62,7 @@ function ListCharter({ currCharter }: currCharterTypes) {
           );
         })}
       </section>
-      <section>
+      <section style={{ zIndex: 0, marginTop: '5rem' }}>
         <button className="show_fav_btn" onClick={() => setShowFavList(!showFavList)} type="button">Adicionar a alguma lista</button>
       </section>
     </section>

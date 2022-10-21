@@ -5,7 +5,8 @@
   display: flex;
   transition: all 0.5s;
   position: absolute;
-  z-index: 0;
+  width: 300px;
+  z-index: 10;
 }
 
 .favList_container {
@@ -13,7 +14,7 @@
   flex-direction: column;
   background-color: black;
   transition: all 0.5s;
-  z-index: 0;
+  position: absolute;
   height: 9rem;
   overflow-x: hidden;
   position: absolute;
@@ -50,6 +51,7 @@
   background-color: rgba(0,0,0,0.3);
   width: 297px;
   border: none;
+  z-index: 99;
   color: white;
   display: flex;
   align-items: center;

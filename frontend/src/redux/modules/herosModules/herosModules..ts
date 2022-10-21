@@ -21,6 +21,7 @@ const STATE_INITIAL_VALUE: heroModulesTypes = {
     marvel: [346, 333, 332, 345, 149, 717],
     dc: [69, 60, 195, 204],
     villains: [204, 370, 379, 731, 678],
+    anime: [],
     All: [],
   },
   currList: 'All',
