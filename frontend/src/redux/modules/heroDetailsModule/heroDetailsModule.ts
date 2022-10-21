@@ -2,7 +2,7 @@ import { heroActionTypes, heroDetailsStateType, heroModulesTypes } from '../../.
 import { HANDLE_DETAIL } from '../../redux_types';
 
 const STATE_INITIAL_VALUE: heroDetailsStateType = {
-  charter: {},
+  charter: null,
   showDetails: false,
 };
 

@@ -8,3 +8,46 @@
   align-items: center;
   justify-content: center;
 }
+
+.card_detail {
+  width: 1120px;
+  height: 720px;
+  display: flex;
+  background-color: #28282a;
+  padding: 2rem 6rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.side_image {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 600px;
+  margin-top: 3rem;
+  padding-top: 3rem;
+  height: 100%;
+}
+
+.side_inf {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 500px;
+  margin-top: 3rem;
+  flex-direction: column;
+  margin-left: -5rem;
+  height: 100%;
+}
+
+.side_inf h1 {
+  font-size: 2rem;
+}
+
+.side_inf span {
+  margin-top: 0.5rem;
+}
+
+.side_image img {
+  width: 200px;
+}

@@ -70,6 +70,6 @@ export interface heroActionTypes {
 }
 
 export interface heroDetailsStateType {
-  charter: Object,
+  charter: heroTypes | any,
   showDetails: boolean
 }
