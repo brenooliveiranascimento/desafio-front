@@ -4,6 +4,7 @@ import { heroDetailsStateType, heroTypes } from '../../types/heroTypes';
 import Cards from '../Cards/Cards';
 import Biography from './Biography';
 import './CharterDetails.css';
+import Connections from './connections';
 
 interface detailStoreType {
   heroDetail: heroDetailsStateType
@@ -23,15 +24,10 @@ function CharterDetails() {
           <h1>{charter.name}</h1>
           {Object.keys(biography)
             .map((bioKey: string) => (<Biography bioKey={bioKey} biography={biography} />))}
-          {
-            Object.keys(connections).map((bioKey: string) => (
-              <span>
-                <strong>{bioKey}</strong>
-                {' '}
-                {connections[bioKey]}
-              </span>
-            ))
-          }
+
+          {Object.keys(connections)
+            .map((connKey: string) => (
+              <Connections connKey={connKey} connections={connections} />))}
         </section>
       </section>
     </main>

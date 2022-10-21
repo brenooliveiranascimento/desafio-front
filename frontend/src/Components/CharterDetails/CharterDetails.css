@@ -46,8 +46,7 @@
 
 .side_inf span {
   margin-top: 0.5rem;
+  line-height: 1.5rem;
+  font-size: 1.3rem;
 }
 
-.side_image img {
-  width: 200px;
-}
