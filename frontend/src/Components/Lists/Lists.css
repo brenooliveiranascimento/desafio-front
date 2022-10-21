@@ -21,6 +21,15 @@
   width: 10rem;
   background-color: #5d3979;
   cursor: pointer;
+  padding: 0;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter_button h1 {
+  font-size: 1.3rem;
 }
 
 .search_by_name_area {
@@ -28,9 +37,21 @@
   flex-direction: column;
 }
 
+.search_by_name_area button {
+  height: 2.3rem;
+  border: none;
+}
+
 .search_by_name_area input {
-  width: 230px;
+  width: 20rem;
+  color:white;
   margin: 1rem 0rem;
+  background-color: rgba(0,0,0,0.0);
+  height: 2rem;
+  border-top: 0px;
+  font-size: 1.4rem;
+  /* border-bottom-width: 1px;
+  border-bottom-color: white; */
 }
 
 .filter_btn_area {
