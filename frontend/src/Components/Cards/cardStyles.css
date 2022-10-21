@@ -38,10 +38,6 @@
   display: none;
 }
 
-.details_btn:hover::after .details_message {
-  display: flex;
-}
-
 .details_btn {
   display: flex;
   z-index: 10;

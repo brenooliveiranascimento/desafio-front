@@ -40,7 +40,7 @@ export interface workTypes {
 }
 
 export interface heroTypes {
-  id: string,
+  id: string | number,
   image: imageType,
   name: string,
   powerstats: powerstatsTypes,
