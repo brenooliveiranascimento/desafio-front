@@ -1,43 +1,18 @@
-import { heroActionTypes, heroModulesTypes } from '../../../types/heroTypes';
 import {
   ADD_CHARTER_IN_LIST,
   ADD_HEROS,
-  ADD_HERO_IN_LIST,
   CREATE_LIST,
-  DELETE_LIST,
   FETCH_HEROS,
   LOAD_END,
   LOAD_INIT,
   REMOVE_CHARTER_IN_LIST,
-  REMOVE_HERO_IN_LIST,
   REMOVE_LIST,
   SELECT_LIST,
   SET_LIST,
 } from '../../redux_types';
-
-const STATE_INITIAL_VALUE: heroModulesTypes = {
-  charter: [],
-  lists: {
-    marvel: [346, 333, 332, 345, 149, 717],
-    dc: [69, 60, 195, 204],
-    villains: [204, 370, 379, 731, 678],
-    anime: [],
-    All: [],
-  },
-  currList: 'All',
-  countShow: 1,
-  load: false,
-};
-
-const ACTION_INITIAL_STATE: heroActionTypes = {
-  type: '',
-  payload: {},
-  id: 0,
-  list: '',
-};
+import { ACTION_INITIAL_STATE, STATE_INITIAL_VALUE } from '../../storeDefaulstValues/herosDefaultValues';
 
 function herosModules(state = STATE_INITIAL_VALUE, action = ACTION_INITIAL_STATE) {
-  console.log(action);
   switch (action.type) {
     case LOAD_INIT:
       return { ...state, load: true };
