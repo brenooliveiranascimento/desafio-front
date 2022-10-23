@@ -13,12 +13,17 @@ export const requestAllCharter = (): any => {
     for (let currId = countShow; currId <= countShow + 27; currId += 1) {
       idList.push(currId);
     }
-    const chaters = await Promise.all(idList.map(async (currId: any) => {
-      const fetchCharter = (await herosApi.get(`${currId}`)).data;
-      return fetchCharter;
-    }));
-    dispatch(setChartes(chaters, ADD_HEROS));
-    dispatch(updateLoad(LOAD_END));
+    try {
+      const chaters = await Promise.all(idList.map(async (currId: any) => {
+        const fetchCharter = (await herosApi.get(`${currId}`)).data;
+        return fetchCharter;
+      }));
+      dispatch(setChartes(chaters, ADD_HEROS));
+      dispatch(updateLoad(LOAD_END));
+    } catch (e) {
+      console.log(e);
+      alert('fala ao carregar! Por favor recarregue a página ou selecione outra lista');
+    }
   };
 };
 
@@ -32,11 +37,16 @@ export const requestCharters = (): any => {
       return;
     }
     if (currList === '') return;
-    const chaters = await Promise.all(lists[currList].map(async (currId: any) => {
-      const fetchCharter = (await herosApi.get(`${currId}`)).data;
-      return fetchCharter;
-    }));
-    dispatch(updateLoad(LOAD_END));
-    dispatch(setChartes(chaters, FETCH_HEROS));
+    try {
+      const chaters = await Promise.all(lists[currList].map(async (currId: any) => {
+        const fetchCharter = (await herosApi.get(`${currId}`)).data;
+        return fetchCharter;
+      }));
+      dispatch(updateLoad(LOAD_END));
+      dispatch(setChartes(chaters, FETCH_HEROS));
+    } catch (e) {
+      console.log(e);
+      alert('');
+    }
   };
 };
