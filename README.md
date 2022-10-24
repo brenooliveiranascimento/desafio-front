@@ -6,7 +6,7 @@ Para o Deploy eu utilizei a vercel e para para o desenvolvimento utilizei o Dock
 orquestrar o Dockerfile do frontend, fiquem a vontade para startar o projeto via Docker ou pelo npm start na pasta frontend caso preferirem.
 Para o gerenciamento do estado global eu optei por utilizar o Redux.
 # [Link para acessar o projeto](https://desafio-front-one.vercel.app/)
-# [Vídeo de apresentação do projeto](https://desafio-front-one.vercel.app/)
+# [Vídeo de apresentação do projeto](https://youtu.be/kT1bYTL9ECQ)
 
 Aplicação de Wiki que consome a api SuperHeroAPIA.
 
