@@ -10,7 +10,7 @@ Para o gerenciamento do estado global eu optei por utilizar o Redux.
 
 Aplicação de Wiki que consome a api SuperHeroAPIA.
 
-## Para rodar o projeto em sua máquina (Tire as "" dos comandos)
+## Para rodar o projeto em sua máquina
 - Clone o repositório com o comando "git clone git@github.com:brenooliveiranascimento/desafio-front.git"
 - Navegue até o diretorio criado com o comando "cd desafio-front"
 - Navegue até o diretorio frontend com o comando "cd frontend"
