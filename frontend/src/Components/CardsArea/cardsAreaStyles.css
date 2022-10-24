@@ -23,3 +23,16 @@
     justify-content: center;
   }
 }
+
+.load_more_btn {
+  padding: 1rem;
+  background-color: rgb(71, 52, 88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin: 1rem;
+  border: none;
+  font-size: 1.4rem;
+}
+

@@ -42,7 +42,7 @@ function CardsArea() {
       }
       </section>
       {currList === 'All' && (
-      <button onClick={loadMore} type="button">
+      <button className="load_more_btn" onClick={loadMore} type="button">
         {load ? 'Loading...' : 'Load More'}
       </button>
       )}
