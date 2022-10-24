@@ -5,7 +5,7 @@ Aplicação Heros Wiki!
 Para o Deploy eu utilizei a vercel e para para o desenvolvimento utilizei o Docker, criei um docker-compose para
 orquestrar o Dockerfile do frontend, fiquem a vontade para startar o projeto via Docker ou pelo npm start na pasta frontend caso preferirem.
 Para o gerenciamento do estado global eu optei por utilizar o Redux.
-# [Link para acessar o projeto](https://desafio-front-mu.vercel.app/)
+# [Link para acessar o projeto](https://desafio-front-one.vercel.app/)
 # [Vídeo de apresentação do projeto](https://desafio-front-one.vercel.app/)
 
 Aplicação de Wiki que consome a api SuperHeroAPIA.
