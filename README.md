@@ -11,20 +11,27 @@ Para o gerenciamento do estado global eu optei por utilizar o Redux.
 Aplicação de Wiki que consome a api SuperHeroAPIA.
 
 ## Para rodar o projeto em sua máquina
-- Clone o repositório com o comando "git clone git@github.com:brenooliveiranascimento/desafio-front.git"
-- Navegue até o diretorio criado com o comando "cd desafio-front"
+- Clone o repositório com o comando "git clone git@github.com:brenooliveiranascimento/amopromo.git"
 - Navegue até o diretorio frontend com o comando "cd frontend"
 - Execute o comando "npm i" ou se preferir utilizar o yarn com "yarn"
-- [EXECUÇÃO COM DOCKER] volte para o diretorio onde possui o docker-compose com "cd .." e execute "docker-compose up"
+- Navegue até o diretorio backend com o comando "cd ../backend"
+- Execute o comando "npm i" ou se preferir utilizar o yarn com "yarn"
+- [EXECUÇÃO COM DOCKER] volte para o diretorio onde possui o docker-compose com "cd .." e execute "docker-compose up --bild"
 - [EXECUÇÃO SEM DOCKER] permaneça no diretorio frontend e execute "npm start"
 - Por padrão o projeto estará rodando na porta 3000 então acesse a url "http://localhost:3000/" dentro do seu navegador
 
 ## [Link para acessar o projeto](https://desafio-front-one.vercel.app/)
 
 Tecnologias utilizadas:<br/>
-<a href="https://www.javascript.com/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" width=30 height=30></a>
-<a href="https://www.javascript.com/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" width=30 height=30></a>
-<a href="https://www.reactnative.com/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg" height=30 width=30></a>
+<h2>Tecnologias Utilizadas<h2>
+<img src="https://img.shields.io/badge/node.js%20-%2343853D.svg?&style=for-the-badge&logo=node.js&logoColor=white"/> 
+<img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white"/>
+<img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white"/>
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
+<img src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white"/>
+<img src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/>
+<img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge"/>
 <img src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/>
 <img src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/>
+<img src="https://img.shields.io/badge/git%20-%23F05033.svg?&style=for-the-badge&logo=git&logoColor=white"/> 
   
