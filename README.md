@@ -1,4 +1,4 @@
-# Material Agora
+# Desafio Front
 
 ## sobre o projeto
 Aplicação Heros Wiki!
